@@ -1,0 +1,19 @@
+{
+  "name": "ha-device-card",
+  "version": "1.0.0",
+  "description": "Lovelace cards for Home Assistant showing the phones, tablets and computers of the Companion app: battery, last update, location, connection, storage, focus and a ring button to find them.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs && node --check dist/device-card.js",
+    "test": "node --test test/*.test.mjs",
+    "screenshots": "node scripts/screenshots.mjs"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "acorn": "^8.19.0",
+    "css-tree": "^3.2.1",
+    "playwright": "^1.56.1"
+  }
+}
