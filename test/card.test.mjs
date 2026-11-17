@@ -372,3 +372,29 @@ test("every English text is used by the cards", async () => {
     assert.ok(code.includes(`"${k}"`), k);
   }
 });
+
+test("the illustrated header: the devices on a desk, night from the sun or the option, the icon in the state's color", () => {
+  const h = html(newCard());
+  assert.match(h, /class="banner"/);
+  assert.match(h, /class="dv-scene"/);
+  assert.match(h, /class="ground"/);
+  assert.match(h, /class="badge crit"/, "a low battery turns the icon red");
+  assert.match(h, /5 devices · 1 low/);
+  assert.match(h, /class="dv-bolt"/, "the charging phone shows a bolt");
+  assert.match(h, /class="dv-cable"/);
+  assert.match(html(newCard({ devices: ["phone"] })), /class="badge active"/);
+  const night = (cfg, sun, dark) => /class="banner night"/.test(html(newCard(cfg, makeHass({ ...moved(), ...(sun ? { "sun.sun": { state: sun } } : {}) }, { themes: { darkMode: dark } }))));
+  assert.equal(night({}, "below_horizon", false), true);
+  assert.equal(night({}, "above_horizon", true), false);
+  assert.equal(night({}, null, true), true);
+  assert.equal(night({ illustration_theme: "night" }, "above_horizon", false), true);
+  assert.equal(night({ illustration_theme: "day" }, "below_horizon", true), false);
+  const a = html(newCard()).match(/id="(dv-win-\d+)"/)[1];
+  const b = html(newCard()).match(/id="(dv-win-\d+)"/)[1];
+  assert.notEqual(a, b, "each card has its own svg ids");
+  const classic = html(newCard({ illustration: false }));
+  assert.doesNotMatch(classic, /class="banner|dv-scene/);
+  assert.match(classic, /class="header"/);
+  assert.match(classic, /class="badge crit"/);
+  assert.match(html(newCard({}, makeHass(), dc.DeviceMiniCard)), /class="banner"/);
+});

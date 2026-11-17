@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.0 - 2026-11-17
+
+### Features
+- **Animated illustrated header** on the full and the mini card (90 px): the card's own devices (laptop, computer, tablet, phone, watch, car, by their kind) standing on a desk, each showing its state on its screen — a beating green bolt and a cable while charging, a blinking red battery when low, a dark screen when offline, else its battery level — with a window showing the sun and a drifting cloud by day, the moon and twinkling stars by night, and a 10 px desk strip under the whole banner.
+- Night picture from `sun.sun` (else the dark theme), forced with `illustration_theme: day | night`; `illustration: false` keeps the classic header with its status pill. Both options are in the visual editors of both cards.
+- The header icon takes the color of the devices' state (red: a low battery, amber: offline, blue: charging, green: all good, grey: no battery reported), in the illustrated and the classic header, with the Mobile App logo as a badge.
+
 ## 1.0.0 - 2026-11-14
 
 ### Features
