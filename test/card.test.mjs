@@ -387,7 +387,8 @@ test("the illustrated header: the devices on a desk, night from the sun or the o
   assert.match(h, /class="dv-cable"/);
   assert.match(html(newCard({ devices: ["phone"] })), /class="badge active"/);
   const night = (cfg, sun, dark) => /class="banner night"/.test(html(newCard(cfg, makeHass({ ...moved(), ...(sun ? { "sun.sun": { state: sun } } : {}) }, { themes: { darkMode: dark } }))));
-  assert.equal(night({}, "below_horizon", false), true);
+  assert.equal(night({}, "below_horizon", false), false, "light theme after sunset: day");
+  assert.equal(night({}, "below_horizon", true), true, "dark theme after sunset: night");
   assert.equal(night({}, "above_horizon", true), true, "dark theme while the sun is up: night");
   assert.equal(night({}, "above_horizon", false), false, "light theme while the sun is up: day");
   assert.equal(night({ illustration_theme: "day" }, "above_horizon", true), false);

@@ -155,7 +155,7 @@ sort: battery
 | `exclude` | both | — | Devices left out when `devices` is not set (names or ids) |
 | `title` | both | Devices | Card title |
 | `illustration` | both | `true` | Animated illustrated header (devices on a desk); `false` for the classic header with its status pill |
-| `illustration_theme` | both | `auto` | `auto` (night when `sun.sun` is below the horizon or the theme is dark), `day` or `night` |
+| `illustration_theme` | both | `auto` | `auto` (follows the Home Assistant theme: night with a dark theme, day with a light theme), `day` or `night` |
 | `show_title` | both | `true` | Show the title in the header |
 | `show_subtitle` | both | `true` | Show the number of devices under the title (for a single device: its name, model and system) |
 | `show_location` | both | `true` | Zone or geocoded place, in the row's line and in the details |

@@ -105,7 +105,7 @@ const STRINGS = {
     show_subtitle: "Show subtitle",
     illustration: "Animated illustration",
     illustration_theme: "Illustration theme",
-    theme_auto: "Automatic (sun or dark theme)",
+    theme_auto: "Automatic (follows the theme)",
     theme_day: "Day",
     theme_night: "Night",
     show_location: "Show location",
@@ -230,7 +230,7 @@ const STRINGS = {
     show_subtitle: "Afficher le sous-titre",
     illustration: "Illustration animée",
     illustration_theme: "Thème de l’illustration",
-    theme_auto: "Automatique (soleil ou thème sombre)",
+    theme_auto: "Automatique (suit le thème)",
     theme_day: "Jour",
     theme_night: "Nuit",
     show_location: "Afficher la position",
@@ -355,7 +355,7 @@ const STRINGS = {
     show_subtitle: "Untertitel anzeigen",
     illustration: "Animierte Illustration",
     illustration_theme: "Thema der Illustration",
-    theme_auto: "Automatisch (Sonne oder dunkles Design)",
+    theme_auto: "Automatisch (folgt dem Design)",
     theme_day: "Tag",
     theme_night: "Nacht",
     show_location: "Standort anzeigen",
@@ -480,7 +480,7 @@ const STRINGS = {
     show_subtitle: "Mostrar subtítulo",
     illustration: "Ilustración animada",
     illustration_theme: "Tema de la ilustración",
-    theme_auto: "Automático (sol o tema oscuro)",
+    theme_auto: "Automático (sigue el tema)",
     theme_day: "Día",
     theme_night: "Noche",
     show_location: "Mostrar ubicación",
@@ -605,7 +605,7 @@ const STRINGS = {
     show_subtitle: "Прикажи поднаслов",
     illustration: "Анимирана илустрација",
     illustration_theme: "Тема илустрације",
-    theme_auto: "Аутоматски (сунце или тамна тема)",
+    theme_auto: "Аутоматски (прати тему)",
     theme_day: "Дан",
     theme_night: "Ноћ",
     show_location: "Прикажи локацију",
@@ -730,7 +730,7 @@ const STRINGS = {
     show_subtitle: "Prikaži podnaslov",
     illustration: "Animirana ilustracija",
     illustration_theme: "Tema ilustracije",
-    theme_auto: "Automatski (sunce ili tamna tema)",
+    theme_auto: "Automatski (prati temu)",
     theme_day: "Dan",
     theme_night: "Noć",
     show_location: "Prikaži lokaciju",
@@ -855,7 +855,7 @@ const STRINGS = {
     show_subtitle: "Mostra sottotitolo",
     illustration: "Illustrazione animata",
     illustration_theme: "Tema dell’illustrazione",
-    theme_auto: "Automatico (sole o tema scuro)",
+    theme_auto: "Automatico (segue il tema)",
     theme_day: "Giorno",
     theme_night: "Notte",
     show_location: "Mostra posizione",
@@ -980,7 +980,7 @@ const STRINGS = {
     show_subtitle: "Ondertitel tonen",
     illustration: "Geanimeerde illustratie",
     illustration_theme: "Thema van de illustratie",
-    theme_auto: "Automatisch (zon of donker thema)",
+    theme_auto: "Automatisch (volgt het thema)",
     theme_day: "Dag",
     theme_night: "Nacht",
     show_location: "Locatie tonen",
@@ -1105,7 +1105,7 @@ const STRINGS = {
     show_subtitle: "Mostrar subtítulo",
     illustration: "Ilustração animada",
     illustration_theme: "Tema da ilustração",
-    theme_auto: "Automático (sol ou tema escuro)",
+    theme_auto: "Automático (segue o tema)",
     theme_day: "Dia",
     theme_night: "Noite",
     show_location: "Mostrar localização",
@@ -1230,7 +1230,7 @@ const STRINGS = {
     show_subtitle: "Pokaż podtytuł",
     illustration: "Animowana ilustracja",
     illustration_theme: "Motyw ilustracji",
-    theme_auto: "Automatycznie (słońce lub ciemny motyw)",
+    theme_auto: "Automatycznie (według motywu)",
     theme_day: "Dzień",
     theme_night: "Noc",
     show_location: "Pokaż lokalizację",
@@ -1355,7 +1355,7 @@ const STRINGS = {
     show_subtitle: "Afișează subtitlul",
     illustration: "Ilustrație animată",
     illustration_theme: "Tema ilustrației",
-    theme_auto: "Automat (soare sau temă întunecată)",
+    theme_auto: "Automat (urmează tema)",
     theme_day: "Zi",
     theme_night: "Noapte",
     show_location: "Afișează locația",
@@ -1480,7 +1480,7 @@ const STRINGS = {
     show_subtitle: "Vis undertitel",
     illustration: "Animeret illustration",
     illustration_theme: "Illustrationens tema",
-    theme_auto: "Automatisk (sol eller mørkt tema)",
+    theme_auto: "Automatisk (følger temaet)",
     theme_day: "Dag",
     theme_night: "Nat",
     show_location: "Vis placering",
@@ -1605,7 +1605,7 @@ const STRINGS = {
     show_subtitle: "Visa undertitel",
     illustration: "Animerad illustration",
     illustration_theme: "Illustrationens tema",
-    theme_auto: "Automatiskt (sol eller mörkt tema)",
+    theme_auto: "Automatiskt (följer temat)",
     theme_day: "Dag",
     theme_night: "Natt",
     show_location: "Visa plats",
@@ -1730,7 +1730,7 @@ const STRINGS = {
     show_subtitle: "Показване на подзаглавието",
     illustration: "Анимирана илюстрация",
     illustration_theme: "Тема на илюстрацията",
-    theme_auto: "Автоматично (слънце или тъмна тема)",
+    theme_auto: "Автоматично (следва темата)",
     theme_day: "Ден",
     theme_night: "Нощ",
     show_location: "Показване на местоположението",
@@ -1855,7 +1855,7 @@ const STRINGS = {
     show_subtitle: "Показывать подзаголовок",
     illustration: "Анимированная иллюстрация",
     illustration_theme: "Тема иллюстрации",
-    theme_auto: "Автоматически (солнце или тёмная тема)",
+    theme_auto: "Автоматически (по теме)",
     theme_day: "День",
     theme_night: "Ночь",
     show_location: "Показывать местоположение",
@@ -1980,7 +1980,7 @@ const STRINGS = {
     show_subtitle: "Показувати підзаголовок",
     illustration: "Анімована ілюстрація",
     illustration_theme: "Тема ілюстрації",
-    theme_auto: "Автоматично (сонце або темна тема)",
+    theme_auto: "Автоматично (за темою)",
     theme_day: "День",
     theme_night: "Ніч",
     show_location: "Показувати розташування",
@@ -2105,7 +2105,7 @@ const STRINGS = {
     show_subtitle: "Alcím megjelenítése",
     illustration: "Animált illusztráció",
     illustration_theme: "Az illusztráció témája",
-    theme_auto: "Automatikus (nap vagy sötét téma)",
+    theme_auto: "Automatikus (a témát követi)",
     theme_day: "Nappal",
     theme_night: "Éjszaka",
     show_location: "Hely megjelenítése",
@@ -2230,7 +2230,7 @@ const STRINGS = {
     show_subtitle: "Zobraziť podnázov",
     illustration: "Animovaná ilustrácia",
     illustration_theme: "Téma ilustrácie",
-    theme_auto: "Automaticky (slnko alebo tmavá téma)",
+    theme_auto: "Automaticky (podľa témy)",
     theme_day: "Deň",
     theme_night: "Noc",
     show_location: "Zobraziť polohu",
@@ -2355,7 +2355,7 @@ const STRINGS = {
     show_subtitle: "Zobrazit podnázev",
     illustration: "Animovaná ilustrace",
     illustration_theme: "Motiv ilustrace",
-    theme_auto: "Automaticky (slunce nebo tmavý motiv)",
+    theme_auto: "Automaticky (podle motivu)",
     theme_day: "Den",
     theme_night: "Noc",
     show_location: "Zobrazit polohu",
@@ -2480,7 +2480,7 @@ const STRINGS = {
     show_subtitle: "Prikaži podnaslov",
     illustration: "Animirana ilustracija",
     illustration_theme: "Tema ilustracije",
-    theme_auto: "Samodejno (sonce ali temna tema)",
+    theme_auto: "Samodejno (sledi temi)",
     theme_day: "Dan",
     theme_night: "Noč",
     show_location: "Prikaži lokacijo",
@@ -2605,7 +2605,7 @@ const STRINGS = {
     show_subtitle: "Rādīt apakšvirsrakstu",
     illustration: "Animēta ilustrācija",
     illustration_theme: "Ilustrācijas motīvs",
-    theme_auto: "Automātiski (saule vai tumšais motīvs)",
+    theme_auto: "Automātiski (seko tēmai)",
     theme_day: "Diena",
     theme_night: "Nakts",
     show_location: "Rādīt atrašanās vietu",
@@ -2730,7 +2730,7 @@ const STRINGS = {
     show_subtitle: "Εμφάνιση υπότιτλου",
     illustration: "Κινούμενη εικονογράφηση",
     illustration_theme: "Θέμα εικονογράφησης",
-    theme_auto: "Αυτόματο (ήλιος ή σκούρο θέμα)",
+    theme_auto: "Αυτόματο (ακολουθεί το θέμα)",
     theme_day: "Ημέρα",
     theme_night: "Νύχτα",
     show_location: "Εμφάνιση τοποθεσίας",
@@ -3430,11 +3430,12 @@ const SCENE_STYLE = `
   @container dc-card (max-width: 280px) { .dv-scene { display: none; } .htext { right: 0; padding-right: 34px; } }
 `;
 
-// Night picture: forced by illustration_theme, else the sun below the horizon or Home Assistant's dark theme.
+// Night picture: forced by illustration_theme, else Home Assistant's dark theme alone (a light theme keeps the day
+// picture after sunset).
 const isNight = (hass, config) => {
   if (config.illustration_theme === "night") return true;
   if (config.illustration_theme === "day") return false;
-  return hass?.states?.["sun.sun"]?.state === "below_horizon" || !!hass?.themes?.darkMode;
+  return !!hass?.themes?.darkMode;
 };
 
 // The state of the devices together, the color of the header icon: a low battery (red), a device not seen for a
@@ -3697,7 +3698,7 @@ class DeviceBase extends HTMLElement {
     const { list } = findDevices(h, this._config);
     if (!list) return null;
     const ids = list.flatMap((d) => Object.values(d.entities));
-    return [h.entities, h.devices, h.services, h.language, h.locale, h.themes?.darkMode, h.states["sun.sun"]?.state, this._minute, ...ids.map((id) => h.states[id])];
+    return [h.entities, h.devices, h.services, h.language, h.locale, h.themes?.darkMode, this._minute, ...ids.map((id) => h.states[id])];
   }
 
   connectedCallback() {
