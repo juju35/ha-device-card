@@ -3442,6 +3442,14 @@ const headerState = (items) => {
   return items.some((i) => i.battery.v !== null) ? "ok" : "idle";
 };
 
+// The width of an element's whole text in fractional pixels, even while it is cut with an ellipsis (0 when hidden).
+const textWidth = (el) => {
+  if (!el?.getClientRects?.().length || typeof document.createRange !== "function") return 0;
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  return range.getBoundingClientRect().width;
+};
+
 let _uid = 0;
 
 // ---------------------------------------------------------------------------
@@ -3468,17 +3476,16 @@ const BASE_STYLE = `
   .header { display: flex; align-items: center; gap: 10px; padding: 12px 12px 0; }
   .titles { flex: 1 1 0; min-width: 5ch; container: dc-titles / inline-size; display: flex; flex-direction: column; align-items: flex-start; }
   .titles > * { max-width: 100%; }
-  /* Banner and classic header: the state pill sits on the title line, right after the title: the title ellipsises first (never under 4
-     characters), the pill keeps its whole label. Without room for both, the pill goes on its own line under the
-     subtitle; on a very narrow card only its dot is left (the label stays in its tooltip and aria-label). */
+  /* Banner and classic header: the state pill sits on the title line, right after the title, when the whole title and
+     its whole label fit there; otherwise it goes on its own line under the subtitle, and when even that is too tight
+     only its dot is left (the label stays in its tooltip and aria-label). Decided by measure (see _fitPill). */
   .trow { display: flex; align-items: center; gap: 8px; min-width: 0; }
-  .trow .name { flex: 0 1 auto; min-width: 4ch; }
-  .trow .chip { flex: none; max-width: calc(100% - 4ch - 8px); line-height: 16px; }
-  @container dc-titles (max-width: 170px) {
-    .trow { display: contents; }
-    .trow .name, .trow .chip { max-width: 100%; }
-    .trow .chip { order: 3; margin-top: 3px; }
-  }
+  .trow .name { flex: 0 1 auto; min-width: 0; }
+  .trow .chip { flex: none; max-width: none; line-height: 16px; }
+  .titles.pill-below .trow { display: contents; }
+  .titles.pill-below .trow .name { max-width: 100%; }
+  .titles.pill-below .trow .chip { order: 3; margin-top: 3px; max-width: 100%; }
+  .titles.pill-dot .chip { padding: 4px; } .titles.pill-dot .chip-text { display: none; }
   :host([hide-title]) .titles .name, :host([hide-subtitle]) .titles > .sub { display: none; }
   .name { font-size: 16px; font-weight: 500; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .sub { font-size: 12px; color: var(--secondary-text-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -3698,6 +3705,18 @@ class DeviceBase extends HTMLElement {
       this._update();
     });
     this._outside.on();
+    // A new width (or the web font loaded): the status pill is fitted again, in the next frame.
+    if (typeof ResizeObserver === "function") {
+      this._pillResize ??= new ResizeObserver((entries) => {
+        const w = Math.round(entries.at(-1).contentRect.width);
+        if (w === this._pillWidth) return;
+        this._pillWidth = w;
+        cancelAnimationFrame(this._pillFrame);
+        this._pillFrame = requestAnimationFrame(() => this._fitPill());
+      });
+      this._pillResize.observe(this);
+    }
+    document.fonts?.ready?.then(() => this._fitPill());
     if (this._hass && this._config) this._update();
     // "5 min ago" moves on its own: re-checked every minute while the card is on the page.
     clearInterval(this._tick);
@@ -3710,6 +3729,8 @@ class DeviceBase extends HTMLElement {
   disconnectedCallback() {
     clearInterval(this._tick);
     this._tick = null;
+    this._pillResize?.disconnect();
+    this._pillWidth = null;
     this._outside?.off();
     // Left (another dashboard view, a conditional card hidden): back to the defaults, the popup closed without ringing.
     this._toggled = new Map();
@@ -3764,11 +3785,42 @@ class DeviceBase extends HTMLElement {
     const root = this.shadowRoot;
     if (!root.firstChild || typeof document.createElement("template").content === "undefined") {
       root.innerHTML = html;
+      this._fitPill();
       return;
     }
     const tpl = document.createElement("template");
     tpl.innerHTML = html;
     morph(root, tpl.content);
+    this._fitPill();
+  }
+
+  // The status pill goes on the title row, right after the title, only when the whole title and the pill's whole
+  // label fit there; otherwise it takes its own line under the subtitle (.pill-below) and the title keeps its row
+  // (cut only when it does not fit alone). The subtitle then keeps one line (its whole text in its tooltip), and when
+  // the block still runs out of the banner or into its ground strip, or the label does not fit its own line, the pill
+  // keeps its dot alone (.pill-dot, the label in its tooltip and aria-label). Measured after each render and on each
+  // new width, never by a fixed width, so that every language fits.
+  _fitPill() {
+    for (const t of this.shadowRoot?.querySelectorAll?.(".titles") || []) {
+      const chips = [...t.querySelectorAll(".chip")];
+      if (!chips[0]?.getBoundingClientRect) continue;
+      t.classList.remove("pill-below", "pill-dot");
+      const sub = t.querySelector(".sub");
+      sub?.removeAttribute("title");
+      if (!chips[0].querySelector(".chip-text")?.getClientRects().length) continue;
+      const avail = t.getBoundingClientRect().width;
+      const gap = parseFloat(getComputedStyle(chips[0].parentElement).columnGap) || 0;
+      const widths = chips.map((c) => c.getBoundingClientRect().width);
+      if (textWidth(t.querySelector(".name")) + widths.reduce((w, c) => w + gap + c, 0) <= avail + 0.01) continue;
+      t.classList.add("pill-below");
+      if (sub && sub.scrollWidth > sub.clientWidth) sub.title = sub.textContent.trim();
+      const banner = t.closest(".banner");
+      const box = banner?.getBoundingClientRect();
+      const floor = banner?.querySelector(".ground")?.getBoundingClientRect().top ?? box?.bottom;
+      const r = t.getBoundingClientRect();
+      const out = box && (r.top < box.top - 0.5 || r.bottom > floor + 0.5);
+      if (out || widths.some((w) => w > avail + 0.01)) t.classList.add("pill-dot");
+    }
   }
 
   _onClick(ev) {
