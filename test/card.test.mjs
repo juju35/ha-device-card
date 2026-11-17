@@ -379,7 +379,10 @@ test("the illustrated header: the devices on a desk, night from the sun or the o
   assert.match(h, /class="dv-scene"/);
   assert.match(h, /class="ground"/);
   assert.match(h, /class="badge crit"/, "a low battery turns the icon red");
-  assert.match(h, /5 devices · 1 low/);
+  // The state in a pill right after the title, in the icon's colour; the subtitle does not repeat it.
+  assert.match(h, /<div class="trow"><div class="name">Devices<\/div><span class="chip crit" role="img" title="1 low" aria-label="1 low"><span class="dot"><\/span><span class="chip-text">1 low<\/span><\/span><\/div>/);
+  assert.match(h, /<div class="sub">5 devices<\/div>/);
+  assert.match(html(newCard({ devices: ["phone"] })), /class="chip active"[^>]*><span class="dot"><\/span><span class="chip-text">Charging</);
   assert.match(h, /class="dv-bolt"/, "the charging phone shows a bolt");
   assert.match(h, /class="dv-cable"/);
   assert.match(html(newCard({ devices: ["phone"] })), /class="badge active"/);

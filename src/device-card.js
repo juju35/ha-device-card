@@ -3400,7 +3400,23 @@ const SCENE_STYLE = `
      title and the subtitle, on the wall at the left. */
   .htext { position: absolute; z-index: 1; left: 0; top: 0; bottom: var(--g); right: var(--sw); display: flex; align-items: center; gap: 10px;
            padding: 8px 8px 8px 12px; min-width: 0; }
-  .htext .titles { flex: 1 1 auto; min-width: 0; }
+  .htext .titles { flex: 1 1 auto; min-width: 0; container: dc-titles / inline-size; display: flex; flex-direction: column; align-items: flex-start; }
+  .htext .titles > * { max-width: 100%; }
+  /* The state pill sits on the title line, right after the title: the title ellipsises first (never under 4
+     characters), the pill keeps its whole label. Without room for both, the pill goes on its own line under the
+     subtitle; on a very narrow card only its dot is left (the label stays in its tooltip and aria-label). */
+  .trow { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .trow .name { flex: 0 1 auto; min-width: 4ch; }
+  .trow .chip { flex: none; max-width: calc(100% - 4ch - 8px); line-height: 16px; }
+  @container dc-titles (max-width: 170px) {
+    .trow { display: contents; }
+    .trow .name, .trow .chip { max-width: 100%; }
+    .trow .chip { order: 3; margin-top: 3px; }
+  }
+  .banner .chip { background: color-mix(in srgb, var(--c) 18%, rgba(255,255,255,.78)); color: color-mix(in srgb, var(--c) 45%, #0d2a45); }
+  .banner.night .chip { background: color-mix(in srgb, var(--c) 30%, rgba(8,18,38,.55)); color: color-mix(in srgb, var(--c) 35%, #ffffff); }
+  /* The classic header keeps only the dot from 230 px; the banner's pill keeps its label down to 200 px. */
+  @container dc-card (min-width: 201px) { .banner .chip { padding: 1px 8px; } .banner .chip-text { display: inline; } }
   .banner .name { font-size: 16px; font-weight: 500; }
   .banner .sub { font-size: 13px; color: #3b5b78; }
   .banner.night .sub { color: rgba(255,255,255,.78); }
@@ -3408,10 +3424,19 @@ const SCENE_STYLE = `
   .banner .badge .icon { fill: color-mix(in srgb, var(--c) 82%, #0d2a45); }
   .banner.night .badge { background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }
   .banner.night .badge .icon { fill: color-mix(in srgb, var(--c) 72%, #fff); }
-  .banner .zoom { position: absolute; z-index: 2; top: 6px; right: 6px; margin: 0; color: #0d2a45; background: rgba(255,255,255,.55); }
-  .banner.night .zoom { color: #fff; background: rgba(10,20,40,.45); }
+  .banner .zoom { position: absolute; z-index: 2; top: 5px; right: 5px; margin: 0; width: 24px; height: 24px; box-sizing: border-box; border: none; color: #33506b;
+                  background: rgba(255,255,255,.55); box-shadow: inset 0 0 0 1px rgba(255,255,255,.7); backdrop-filter: blur(4px); }
+  .banner .zoom .icon { width: 16px; height: 16px; }
+  .banner .zoom:hover { background: rgba(255,255,255,.75); color: #33506b; }
+  .banner.night .zoom { color: #fff; background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); }
+  .banner.night .zoom:hover { background: rgba(255,255,255,.22); color: #fff; }
   /* Narrow card: no room for the desk beside the text, the wall and the desk strip alone stay. */
-  @container (max-width: 260px) { .dv-scene { display: none; } .htext { right: 0; padding-right: 34px; } }
+  /* Mid-width card: the text takes the window's place (the window goes), the devices keep theirs. */
+  @container dc-card (max-width: 360px) {
+    .htext { right: calc(var(--sw) - 46px); }
+    .dv-pane, .dv-frame, .dv-scene > g[clip-path] { display: none; }
+  }
+  @container dc-card (max-width: 260px) { .dv-scene { display: none; } .htext { right: 0; padding-right: 34px; } }
 `;
 
 // Night picture: forced by illustration_theme, else the sun below the horizon, else Home Assistant's dark mode.
@@ -3441,7 +3466,7 @@ let _uid = 0;
 const BASE_STYLE = `
   :host { --dc-accent: #009688; --dc-ok: var(--success-color, #43a047); --dc-warn: var(--warning-color, #ffa600);
           --dc-crit: var(--error-color, #db4437); --dc-idle: var(--disabled-text-color, #9e9e9e); --dc-active: var(--info-color, #039be5); }
-  ha-card { overflow: hidden; container-type: inline-size; position: relative; }
+  ha-card { overflow: hidden; container: dc-card / inline-size; position: relative; }
   /* A size container has no width of its own: this zero-height grid gives the card a natural width without a minimum. */
   :host { display: block; min-width: 0; --dc-natural-width: 380px; }
   :host::before { content: ""; display: grid; grid-template-columns: minmax(0, var(--dc-natural-width)); height: 0; }
@@ -3458,7 +3483,7 @@ const BASE_STYLE = `
   .header { display: flex; align-items: center; gap: 10px; padding: 12px 12px 0; }
   .header:has(.sub) > .chip { margin-bottom: 14.4px; }
   .titles { flex: 1 1 0; min-width: 5ch; }
-  :host([hide-title]) .titles > .name, :host([hide-subtitle]) .titles > .sub { display: none; }
+  :host([hide-title]) .titles .name, :host([hide-subtitle]) .titles > .sub { display: none; }
   .name { font-size: 16px; font-weight: 500; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .sub { font-size: 12px; color: var(--secondary-text-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .badge { position: relative; display: flex; flex: none; width: 40px; height: 40px; border-radius: 50%; align-items: center; justify-content: center;
@@ -3494,7 +3519,7 @@ const BASE_STYLE = `
   .popup .p-title .icon { color: var(--dc-crit); width: 20px; height: 20px; }
   .popup .p-text { font-size: 13px; color: var(--secondary-text-color); }
   .popup .p-actions { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
-  @container (max-width: 230px) {
+  @container dc-card (max-width: 230px) {
     .chip { padding: 4px; flex: none; }
     .chip-text { display: none; }
     .header { gap: 6px; }
@@ -3536,11 +3561,11 @@ const FULL_STYLE = `
   .tile .bar > div { height: 100%; border-radius: 3px; background: var(--c, var(--dc-ok)); transition: width .6s ease; }
   .actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
   .sent { font-size: 12px; color: var(--secondary-text-color); }
-  @container (max-width: 300px) {
+  @container dc-card (max-width: 300px) {
     .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .body { padding-left: 12px; }
   }
-  @container (max-width: 200px) {
+  @container dc-card (max-width: 200px) {
     .tiles { grid-template-columns: minmax(0, 1fr); }
     .row .chevron { display: none; }
   }
@@ -3809,12 +3834,16 @@ class DeviceBase extends HTMLElement {
 
   // ---- Parts -------------------------------------------------------------
 
+  // The state pill of the header, in the colour of its round icon (headerState): low batteries, devices offline,
+  // one device charging, else all good.
   _pill(items) {
     const low = items.filter((i) => i.battery.low).length;
     const stale = items.filter((i) => i.stale).length;
-    if (low) return this._chip("crit", this._t("pill_low", { n: low }));
-    if (stale) return this._chip("warn", this._t("pill_stale", { n: stale }));
-    return this._chip("ok", this._t("pill_ok"));
+    const cls = headerState(items);
+    if (low) return this._chip(cls, this._t("pill_low", { n: low }));
+    if (stale) return this._chip(cls, this._t("pill_stale", { n: stale }));
+    if (items.length === 1 && items[0].battery.charging) return this._chip(cls, this._t("state_charging"));
+    return this._chip(cls, this._t("pill_ok"));
   }
 
   _chip(cls, text, entity) {
@@ -3830,7 +3859,7 @@ class DeviceBase extends HTMLElement {
     return new RegExp(`^${prefix}`, "i").test(os) ? os : `${prefix} ${os}`;
   }
 
-  // The header: the illustration with the title and the subtitle on its wall (the state in the subtitle and in the
+  // The header: the illustration with the title, its state pill and the subtitle on its wall (the state also in the
   // icon's color), or the classic header with its state pill (illustration: false).
   _header(items) {
     const c = this._config;
@@ -3852,7 +3881,8 @@ class DeviceBase extends HTMLElement {
         ${this._zoomButton()}
       </div>`;
     }
-    const line = [sub, this._stateText(items, single)].filter(Boolean).join(" · ");
+    // The state in the pill right after the title, the subtitle under them.
+    const line = [sub, this._seenText(items, single)].filter(Boolean).join(" · ");
     return `
       <div class="banner${isNight(this._hass, c) ? " night" : ""}">
         ${deviceSceneSvg(this._uid, items)}
@@ -3860,7 +3890,7 @@ class DeviceBase extends HTMLElement {
         <div class="htext">
           ${badge}
           <div class="titles">
-            <div class="name">${esc(title)}</div>
+            <div class="trow"><div class="name">${esc(title)}</div>${this._pill(items)}</div>
             ${line ? `<div class="sub">${esc(line)}</div>` : ""}
           </div>
         </div>
@@ -3868,18 +3898,10 @@ class DeviceBase extends HTMLElement {
       </div>`;
   }
 
-  // The state the classic header's pill shows, in the illustrated header's subtitle: a low battery, a device not
-  // seen for a while, or (one device) charging; nothing when all is well.
-  _stateText(items, single) {
-    const low = items.filter((i) => i.battery.low).length;
-    const stale = items.filter((i) => i.stale).length;
-    if (single) {
-      if (low) return this._t("low_battery");
-      if (stale) return this._t("seen", { ago: fmtAgo(single.lastSeen, this._opts().now, this._locale()) });
-      return single.battery.charging ? this._t("state_charging") : "";
-    }
-    if (low) return this._t("pill_low", { n: low });
-    return stale ? this._t("pill_stale", { n: stale }) : "";
+  // What the subtitle adds to the pill: when one device is offline (and its battery is not low), when it was last seen.
+  _seenText(items, single) {
+    if (!single || !single.stale || single.battery.low) return "";
+    return this._t("seen", { ago: fmtAgo(single.lastSeen, this._opts().now, this._locale()) });
   }
 
   // The Mobile App logo on the header icon, when the build embedded it.

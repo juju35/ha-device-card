@@ -1,4 +1,5 @@
 # Changelog
+- **State pill on the title line** of the illustrated header (full and mini cards): right after the title, in the round icon's colour (*Charging* for a single charging device), dropping under the subtitle on a narrow header and keeping only its dot on a very narrow card; the subtitle no longer repeats it. On a mid-width card the text takes the window's place. The mini card's expand/collapse button is a 24 px frosted round button in the banner's top-right corner.
 
 ## 1.1.0 - 2026-11-17
 
