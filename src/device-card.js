@@ -103,6 +103,11 @@ const STRINGS = {
     title: "Title (optional)",
     show_title: "Show title",
     show_subtitle: "Show subtitle",
+    illustration: "Animated illustration",
+    illustration_theme: "Illustration theme",
+    theme_auto: "Automatic (sun or dark theme)",
+    theme_day: "Day",
+    theme_night: "Night",
     show_location: "Show location",
     show_connection: "Show connection",
     show_storage: "Show storage",
@@ -223,6 +228,11 @@ const STRINGS = {
     title: "Titre (facultatif)",
     show_title: "Afficher le titre",
     show_subtitle: "Afficher le sous-titre",
+    illustration: "Illustration animée",
+    illustration_theme: "Thème de l’illustration",
+    theme_auto: "Automatique (soleil ou thème sombre)",
+    theme_day: "Jour",
+    theme_night: "Nuit",
     show_location: "Afficher la position",
     show_connection: "Afficher la connexion",
     show_storage: "Afficher le stockage",
@@ -343,6 +353,11 @@ const STRINGS = {
     title: "Titel (optional)",
     show_title: "Titel anzeigen",
     show_subtitle: "Untertitel anzeigen",
+    illustration: "Animierte Illustration",
+    illustration_theme: "Thema der Illustration",
+    theme_auto: "Automatisch (Sonne oder dunkles Design)",
+    theme_day: "Tag",
+    theme_night: "Nacht",
     show_location: "Standort anzeigen",
     show_connection: "Verbindung anzeigen",
     show_storage: "Speicher anzeigen",
@@ -463,6 +478,11 @@ const STRINGS = {
     title: "Título (opcional)",
     show_title: "Mostrar título",
     show_subtitle: "Mostrar subtítulo",
+    illustration: "Ilustración animada",
+    illustration_theme: "Tema de la ilustración",
+    theme_auto: "Automático (sol o tema oscuro)",
+    theme_day: "Día",
+    theme_night: "Noche",
     show_location: "Mostrar ubicación",
     show_connection: "Mostrar conexión",
     show_storage: "Mostrar almacenamiento",
@@ -583,6 +603,11 @@ const STRINGS = {
     title: "Наслов (опционо)",
     show_title: "Прикажи наслов",
     show_subtitle: "Прикажи поднаслов",
+    illustration: "Анимирана илустрација",
+    illustration_theme: "Тема илустрације",
+    theme_auto: "Аутоматски (сунце или тамна тема)",
+    theme_day: "Дан",
+    theme_night: "Ноћ",
     show_location: "Прикажи локацију",
     show_connection: "Прикажи везу",
     show_storage: "Прикажи складиште",
@@ -703,6 +728,11 @@ const STRINGS = {
     title: "Naslov (opciono)",
     show_title: "Prikaži naslov",
     show_subtitle: "Prikaži podnaslov",
+    illustration: "Animirana ilustracija",
+    illustration_theme: "Tema ilustracije",
+    theme_auto: "Automatski (sunce ili tamna tema)",
+    theme_day: "Dan",
+    theme_night: "Noć",
     show_location: "Prikaži lokaciju",
     show_connection: "Prikaži vezu",
     show_storage: "Prikaži skladište",
@@ -823,6 +853,11 @@ const STRINGS = {
     title: "Titolo (facoltativo)",
     show_title: "Mostra titolo",
     show_subtitle: "Mostra sottotitolo",
+    illustration: "Illustrazione animata",
+    illustration_theme: "Tema dell’illustrazione",
+    theme_auto: "Automatico (sole o tema scuro)",
+    theme_day: "Giorno",
+    theme_night: "Notte",
     show_location: "Mostra posizione",
     show_connection: "Mostra connessione",
     show_storage: "Mostra archiviazione",
@@ -943,6 +978,11 @@ const STRINGS = {
     title: "Titel (optioneel)",
     show_title: "Titel tonen",
     show_subtitle: "Ondertitel tonen",
+    illustration: "Geanimeerde illustratie",
+    illustration_theme: "Thema van de illustratie",
+    theme_auto: "Automatisch (zon of donker thema)",
+    theme_day: "Dag",
+    theme_night: "Nacht",
     show_location: "Locatie tonen",
     show_connection: "Verbinding tonen",
     show_storage: "Opslag tonen",
@@ -1063,6 +1103,11 @@ const STRINGS = {
     title: "Título (opcional)",
     show_title: "Mostrar título",
     show_subtitle: "Mostrar subtítulo",
+    illustration: "Ilustração animada",
+    illustration_theme: "Tema da ilustração",
+    theme_auto: "Automático (sol ou tema escuro)",
+    theme_day: "Dia",
+    theme_night: "Noite",
     show_location: "Mostrar localização",
     show_connection: "Mostrar ligação",
     show_storage: "Mostrar armazenamento",
@@ -1183,6 +1228,11 @@ const STRINGS = {
     title: "Tytuł (opcjonalny)",
     show_title: "Pokaż tytuł",
     show_subtitle: "Pokaż podtytuł",
+    illustration: "Animowana ilustracja",
+    illustration_theme: "Motyw ilustracji",
+    theme_auto: "Automatycznie (słońce lub ciemny motyw)",
+    theme_day: "Dzień",
+    theme_night: "Noc",
     show_location: "Pokaż lokalizację",
     show_connection: "Pokaż połączenie",
     show_storage: "Pokaż pamięć",
@@ -1303,6 +1353,11 @@ const STRINGS = {
     title: "Titlu (opțional)",
     show_title: "Afișează titlul",
     show_subtitle: "Afișează subtitlul",
+    illustration: "Ilustrație animată",
+    illustration_theme: "Tema ilustrației",
+    theme_auto: "Automat (soare sau temă întunecată)",
+    theme_day: "Zi",
+    theme_night: "Noapte",
     show_location: "Afișează locația",
     show_connection: "Afișează conexiunea",
     show_storage: "Afișează stocarea",
@@ -1423,6 +1478,11 @@ const STRINGS = {
     title: "Titel (valgfri)",
     show_title: "Vis titel",
     show_subtitle: "Vis undertitel",
+    illustration: "Animeret illustration",
+    illustration_theme: "Illustrationens tema",
+    theme_auto: "Automatisk (sol eller mørkt tema)",
+    theme_day: "Dag",
+    theme_night: "Nat",
     show_location: "Vis placering",
     show_connection: "Vis forbindelse",
     show_storage: "Vis lagerplads",
@@ -1543,6 +1603,11 @@ const STRINGS = {
     title: "Titel (valfri)",
     show_title: "Visa titel",
     show_subtitle: "Visa undertitel",
+    illustration: "Animerad illustration",
+    illustration_theme: "Illustrationens tema",
+    theme_auto: "Automatiskt (sol eller mörkt tema)",
+    theme_day: "Dag",
+    theme_night: "Natt",
     show_location: "Visa plats",
     show_connection: "Visa anslutning",
     show_storage: "Visa lagring",
@@ -1663,6 +1728,11 @@ const STRINGS = {
     title: "Заглавие (по избор)",
     show_title: "Показване на заглавието",
     show_subtitle: "Показване на подзаглавието",
+    illustration: "Анимирана илюстрация",
+    illustration_theme: "Тема на илюстрацията",
+    theme_auto: "Автоматично (слънце или тъмна тема)",
+    theme_day: "Ден",
+    theme_night: "Нощ",
     show_location: "Показване на местоположението",
     show_connection: "Показване на връзката",
     show_storage: "Показване на хранилището",
@@ -1783,6 +1853,11 @@ const STRINGS = {
     title: "Заголовок (необязательно)",
     show_title: "Показывать заголовок",
     show_subtitle: "Показывать подзаголовок",
+    illustration: "Анимированная иллюстрация",
+    illustration_theme: "Тема иллюстрации",
+    theme_auto: "Автоматически (солнце или тёмная тема)",
+    theme_day: "День",
+    theme_night: "Ночь",
     show_location: "Показывать местоположение",
     show_connection: "Показывать подключение",
     show_storage: "Показывать хранилище",
@@ -1903,6 +1978,11 @@ const STRINGS = {
     title: "Заголовок (необов'язково)",
     show_title: "Показувати заголовок",
     show_subtitle: "Показувати підзаголовок",
+    illustration: "Анімована ілюстрація",
+    illustration_theme: "Тема ілюстрації",
+    theme_auto: "Автоматично (сонце або темна тема)",
+    theme_day: "День",
+    theme_night: "Ніч",
     show_location: "Показувати розташування",
     show_connection: "Показувати з'єднання",
     show_storage: "Показувати сховище",
@@ -2023,6 +2103,11 @@ const STRINGS = {
     title: "Cím (nem kötelező)",
     show_title: "Cím megjelenítése",
     show_subtitle: "Alcím megjelenítése",
+    illustration: "Animált illusztráció",
+    illustration_theme: "Az illusztráció témája",
+    theme_auto: "Automatikus (nap vagy sötét téma)",
+    theme_day: "Nappal",
+    theme_night: "Éjszaka",
     show_location: "Hely megjelenítése",
     show_connection: "Kapcsolat megjelenítése",
     show_storage: "Tárhely megjelenítése",
@@ -2143,6 +2228,11 @@ const STRINGS = {
     title: "Názov (voliteľný)",
     show_title: "Zobraziť názov",
     show_subtitle: "Zobraziť podnázov",
+    illustration: "Animovaná ilustrácia",
+    illustration_theme: "Téma ilustrácie",
+    theme_auto: "Automaticky (slnko alebo tmavá téma)",
+    theme_day: "Deň",
+    theme_night: "Noc",
     show_location: "Zobraziť polohu",
     show_connection: "Zobraziť pripojenie",
     show_storage: "Zobraziť úložisko",
@@ -2263,6 +2353,11 @@ const STRINGS = {
     title: "Název (volitelný)",
     show_title: "Zobrazit název",
     show_subtitle: "Zobrazit podnázev",
+    illustration: "Animovaná ilustrace",
+    illustration_theme: "Motiv ilustrace",
+    theme_auto: "Automaticky (slunce nebo tmavý motiv)",
+    theme_day: "Den",
+    theme_night: "Noc",
     show_location: "Zobrazit polohu",
     show_connection: "Zobrazit připojení",
     show_storage: "Zobrazit úložiště",
@@ -2383,6 +2478,11 @@ const STRINGS = {
     title: "Naslov (neobvezno)",
     show_title: "Prikaži naslov",
     show_subtitle: "Prikaži podnaslov",
+    illustration: "Animirana ilustracija",
+    illustration_theme: "Tema ilustracije",
+    theme_auto: "Samodejno (sonce ali temna tema)",
+    theme_day: "Dan",
+    theme_night: "Noč",
     show_location: "Prikaži lokacijo",
     show_connection: "Prikaži povezavo",
     show_storage: "Prikaži shrambo",
@@ -2503,6 +2603,11 @@ const STRINGS = {
     title: "Virsraksts (neobligāts)",
     show_title: "Rādīt virsrakstu",
     show_subtitle: "Rādīt apakšvirsrakstu",
+    illustration: "Animēta ilustrācija",
+    illustration_theme: "Ilustrācijas motīvs",
+    theme_auto: "Automātiski (saule vai tumšais motīvs)",
+    theme_day: "Diena",
+    theme_night: "Nakts",
     show_location: "Rādīt atrašanās vietu",
     show_connection: "Rādīt savienojumu",
     show_storage: "Rādīt krātuvi",
@@ -2623,6 +2728,11 @@ const STRINGS = {
     title: "Τίτλος (προαιρετικός)",
     show_title: "Εμφάνιση τίτλου",
     show_subtitle: "Εμφάνιση υπότιτλου",
+    illustration: "Κινούμενη εικονογράφηση",
+    illustration_theme: "Θέμα εικονογράφησης",
+    theme_auto: "Αυτόματο (ήλιος ή σκούρο θέμα)",
+    theme_day: "Ημέρα",
+    theme_night: "Νύχτα",
     show_location: "Εμφάνιση τοποθεσίας",
     show_connection: "Εμφάνιση σύνδεσης",
     show_storage: "Εμφάνιση αποθηκευτικού χώρου",
@@ -2735,7 +2845,8 @@ const BY_LENGTH = KEYS.flatMap(([key, domain, ids]) => ids.map((id) => ({ key, d
 const KINDS = ["phone", "tablet", "laptop", "desktop", "car", "watch", "other"];
 const SORTS = ["name", "battery", "last_seen", "none"];
 const DETAILS = ["auto", "expanded", "collapsed"];
-const DEFAULTS = { sort: "name", details: "auto", low_battery: 20, stale_after: 12 };
+const DEFAULTS = { sort: "name", details: "auto", low_battery: 20, stale_after: 12, illustration_theme: "auto" };
+const THEMES = ["auto", "day", "night"];
 const TOGGLES = ["show_location", "show_connection", "show_storage", "show_status", "show_system", "show_computer", "show_actions"];
 
 // ---------------------------------------------------------------------------
@@ -3130,13 +3241,229 @@ const RING_STYLE = `
 `;
 
 // ---------------------------------------------------------------------------
+// Illustrated header
+// ---------------------------------------------------------------------------
+
+// The header's picture: a desk at the right of a 200 × 80 scene, the card's own devices standing on it (laptop,
+// computer, tablet, phone, watch, car, by their kind) with their state on their screen: a beating green bolt and a
+// cable while charging, a blinking red battery when low, a dark screen when not seen for a while, else a lit
+// screen with the battery level. A window at the left shows the sun and a cloud by day, the moon and stars by
+// night. The left of the banner is open wall: the card's text sits there. A 10 px desk strip runs under the
+// whole banner, edge to edge.
+
+// The Mobile App integration's logo, embedded by the build from images/mobile_app.png (a badge on the header icon).
+const MOBILE_APP_LOGO = "__MOBILE_APP_LOGO__";
+
+// Width of each device on the desk, in scene units (the scene is 80 high, the desk at its bottom).
+const DV_WIDTH = { laptop: 58, desktop: 44, car: 30, tablet: 26, other: 24, phone: 12, watch: 12 };
+const DV_AREA = 146;
+const DV_GAP = 7;
+
+// The devices drawn: the low and charging ones first, then the others, as many as fit on the desk (four at
+// most), drawn from the largest at the left to the smallest at the right.
+const sceneDevices = (items) => {
+  const rank = (it) => (it.battery.low ? 0 : it.battery.charging ? 1 : 2);
+  const picked = [];
+  let used = -DV_GAP;
+  for (const it of [...items].sort((a, b) => rank(a) - rank(b))) {
+    const w = DV_WIDTH[it.dev.kind] || DV_WIDTH.other;
+    if (picked.length >= 4 || used + DV_GAP + w > DV_AREA) continue;
+    picked.push(it);
+    used += DV_GAP + w;
+  }
+  return picked.sort((a, b) => (DV_WIDTH[b.dev.kind] || DV_WIDTH.other) - (DV_WIDTH[a.dev.kind] || DV_WIDTH.other));
+};
+
+// What a device's screen shows, inside the screen box (x, y, w, h).
+const dvScreen = (it, x, y, w, h, rx = 1) => {
+  const b = it.battery;
+  const on = !it.stale;
+  let inner = "";
+  if (on) {
+    const cx = x + w / 2;
+    const cy = y + h / 2;
+    const s = Math.min(w, h) * 0.55;
+    if (b.charging) inner += `<g class="dv-bolt"><path transform="translate(${(cx - s / 2).toFixed(2)} ${(cy - s / 2 - 1).toFixed(2)}) scale(${(s / 24).toFixed(3)})" d="${ICONS.bolt}"/></g>`;
+    else if (b.low) {
+      const bw = Math.min(w * 0.6, 14);
+      const bh = Math.min(h * 0.32, 7);
+      const bx = cx - bw / 2;
+      const by = cy - bh / 2 - 1;
+      inner += `<g class="dv-low"><rect x="${bx.toFixed(2)}" y="${by.toFixed(2)}" width="${bw.toFixed(2)}" height="${bh.toFixed(2)}" rx=".8"/><rect class="tip" x="${(bx + bw).toFixed(2)}" y="${(cy - 2).toFixed(2)}" width="1.2" height="2" rx=".3"/><rect class="lvl" x="${(bx + 1).toFixed(2)}" y="${(by + 1).toFixed(2)}" width="${Math.max(1, (bw - 2) * Math.min(1, (b.v ?? 0) / 100) + 1).toFixed(2)}" height="${(bh - 2).toFixed(2)}" rx=".4"/></g>`;
+    } else if (it.dev.kind === "laptop" || it.dev.kind === "desktop") {
+      // A few lines of text and a blinking caret.
+      const lx = x + 3;
+      inner += `<g class="dv-text"><rect x="${lx}" y="${y + 3}" width="${(w * 0.5).toFixed(1)}" height="1.4" rx=".7"/><rect x="${lx}" y="${y + 6.5}" width="${(w * 0.7).toFixed(1)}" height="1.4" rx=".7"/><rect x="${lx}" y="${y + 10}" width="${(w * 0.35).toFixed(1)}" height="1.4" rx=".7"/></g><rect class="dv-caret" x="${(lx + w * 0.35 + 1.5).toFixed(1)}" y="${y + 9.4}" width="1" height="2.6"/>`;
+    }
+    // The battery level, as a thin bar at the bottom of the screen.
+    if (b.v !== null && w >= 8) {
+      const bw = w - 4;
+      inner += `<rect class="dv-bar" x="${x + 2}" y="${(y + h - 2.6).toFixed(2)}" width="${bw}" height="1.2" rx=".6"/><rect class="dv-bar-v ${b.cls}" x="${x + 2}" y="${(y + h - 2.6).toFixed(2)}" width="${((bw * Math.max(0, Math.min(100, b.v))) / 100).toFixed(2)}" height="1.2" rx=".6"/>`;
+    }
+  }
+  return `<rect class="dv-scr${on ? " on" : ""}" x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}"/>${inner}`;
+};
+
+// One device at x (its left edge), standing on the desk (y 80).
+const dvDevice = (it, x) => {
+  const k = KINDS.includes(it.dev.kind) ? it.dev.kind : "other";
+  let g;
+  if (k === "laptop")
+    g = `<rect class="dv-body" x="${x + 6}" y="47" width="46" height="30" rx="2"/>${dvScreen(it, x + 8.5, 49.5, 41, 25)}<rect class="dv-base" x="${x}" y="77" width="58" height="3" rx="1"/>`;
+  else if (k === "desktop")
+    g = `<rect class="dv-body" x="${x}" y="42" width="44" height="28" rx="2"/>${dvScreen(it, x + 2.5, 44.5, 39, 23)}<rect class="dv-base" x="${x + 19.5}" y="70" width="5" height="7.5"/><rect class="dv-base" x="${x + 12}" y="77" width="20" height="3" rx="1"/>`;
+  else if (k === "tablet")
+    g = `<g transform="rotate(-7 ${x + 13} 80)"><rect class="dv-body" x="${x + 1}" y="48" width="24" height="32" rx="2.5"/>${dvScreen(it, x + 3, 50, 20, 28)}</g>`;
+  else if (k === "phone") g = `<rect class="dv-body" x="${x}" y="57" width="12" height="23" rx="2.5"/>${dvScreen(it, x + 1.5, 59, 9, 18.5)}`;
+  else if (k === "watch")
+    g = `<rect class="dv-band" x="${x + 3.5}" y="60" width="5" height="17"/><rect class="dv-body" x="${x + 1}" y="63" width="10" height="11" rx="3"/>${dvScreen(it, x + 2.3, 64.3, 7.4, 8.4, 2)}<rect class="dv-base" x="${x}" y="77" width="12" height="3" rx="1.5"/>`;
+  else if (k === "car")
+    g = `<path class="dv-car" d="M${x + 2} 76V70.5Q${x + 2} 68 ${x + 5} 67.6L${x + 8.5} 62.2Q${x + 9.5} 61 ${x + 11} 61H${x + 20}Q${x + 21.6} 61 ${x + 22.6} 62.4L${x + 25.6} 67.4Q${x + 28} 68 ${x + 28} 70.5V76Z"/>${dvScreen(it, x + 10, 62.6, 11, 5, 0.6)}<circle class="dv-wheel" cx="${x + 8}" cy="76.5" r="3.5"/><circle class="dv-wheel" cx="${x + 22}" cy="76.5" r="3.5"/>`;
+  else g = `<rect class="dv-body" x="${x}" y="50" width="24" height="27" rx="2"/>${dvScreen(it, x + 2, 52, 20, 23)}<rect class="dv-base" x="${x + 4}" y="77" width="16" height="3" rx="1"/>`;
+  // A charging device: its cable runs along the desk to the right edge.
+  const cable = it.battery.charging && !it.stale ? `<path class="dv-cable" d="M${x + (DV_WIDTH[k] || 24) - 3} 79.4H200"/>` : "";
+  return `${cable}<g class="dv-dev ${k}">${g}</g>`;
+};
+
+const STARS = [
+  [19, 15, 0.6],
+  [25, 27, 0.5],
+  [31, 13, 0.45],
+  [40, 30, 0.5],
+];
+
+// The whole picture. `uid` keeps each card's clip path apart on a page with several cards.
+const deviceSceneSvg = (uid, items) => {
+  const list = sceneDevices(items);
+  const total = list.reduce((s, it) => s + (DV_WIDTH[it.dev.kind] || DV_WIDTH.other), 0) + DV_GAP * Math.max(0, list.length - 1);
+  let x = 196 - total;
+  const devs = list
+    .map((it) => {
+      const svg = dvDevice(it, x);
+      x += (DV_WIDTH[it.dev.kind] || DV_WIDTH.other) + DV_GAP;
+      return svg;
+    })
+    .join("");
+  // A short row (one or two small devices) is drawn larger, from the desk's right corner.
+  const k = total ? Math.min(1.6, (DV_AREA * 0.75) / total) : 1;
+  const group = k > 1 ? `<g transform="translate(196 80) scale(${k.toFixed(3)}) translate(-196 -80)">${devs}</g>` : devs;
+  const stars = STARS.map(([sx, sy, r], i) => `<circle class="dv-star${i % 2 ? " tw" : ""}" cx="${sx}" cy="${sy}" r="${r}"/>`).join("");
+  return `<svg class="dv-scene" viewBox="0 0 200 80" preserveAspectRatio="xMaxYMax meet" aria-hidden="true" focusable="false">
+    <defs><clipPath id="dv-win-${uid}"><rect x="14" y="10" width="30" height="26" rx="1.5"/></clipPath></defs>
+    <rect class="dv-pane" x="14" y="10" width="30" height="26" rx="1.5"/>
+    <g clip-path="url(#dv-win-${uid})">
+      <g class="dv-day"><circle class="dv-sun" cx="36" cy="17" r="4"/><path class="dv-cloud" d="M12 28a3.4 3.4 0 0 1 5-2.8 4.2 4.2 0 0 1 8 1.2 2.6 2.6 0 0 1 .4 5.2H14a2.6 2.6 0 0 1-2-3.6Z"/></g>
+      <g class="dv-night">${stars}<path class="dv-moon" d="M35 13.6a4.6 4.6 0 1 0 4 6.9 3.8 3.8 0 1 1-4-6.9Z"/></g>
+    </g>
+    <path class="dv-frame" d="M14.8 10.8h28.4v24.4H14.8ZM29 10.8v24.4M14.8 23h28.4"/>
+    ${group}
+  </svg>`;
+};
+
+// The illustration's colours and animations, day and night (all still with reduced motion, see BASE_STYLE).
+const SCENE_STYLE = `
+  .banner { position: relative; overflow: hidden; height: 90px; --g: 10px; --sw: min(200px, 62%); background: #eef1f6; color: #0d2a45; }
+  .banner.night { background: #262c3a; color: #fff; }
+  .dv-scene { position: absolute; right: 0; bottom: var(--g); width: var(--sw); height: calc(100% - var(--g)); overflow: visible; }
+  .ground { position: absolute; left: 0; right: 0; bottom: 0; height: var(--g); background: #b98a5c; box-shadow: inset 0 2px 0 #d4a878; }
+  .night .ground { background: #4a3a2c; box-shadow: inset 0 2px 0 #5c4836; }
+  .dv-night, .night .dv-day { display: none; }
+  .night .dv-night { display: inline; }
+  .dv-pane { fill: #bfe0f7; } .night .dv-pane { fill: #1b2f52; }
+  .dv-frame { fill: none; stroke: #fff; stroke-width: 1.6; stroke-linejoin: round; } .night .dv-frame { stroke: #4a5568; }
+  .dv-sun { fill: #ffd65a; }
+  .dv-cloud { fill: #fff; opacity: .92; animation: dv-drift 7s ease-in-out infinite alternate; }
+  .dv-moon { fill: #f4f1dc; }
+  .dv-star { fill: #fff; } .dv-star.tw { animation: dv-twinkle 2.6s ease-in-out infinite alternate; }
+  .dv-body { fill: #2a3038; } .dv-band { fill: #4a5260; }
+  .night .dv-body { fill: #13171e; stroke: #5d6878; stroke-width: .6; } .night .dv-band { fill: #5d6878; } .dv-base { fill: #9aa3ae; } .night .dv-base { fill: #6b7482; }
+  .dv-car { fill: #5a8fc9; } .night .dv-car { fill: #4a77a8; } .dv-wheel { fill: #2a3038; } .night .dv-wheel { fill: #13171e; stroke: #5d6878; stroke-width: .6; }
+  .dv-scr { fill: #3a4250; } .night .dv-scr { fill: #1d222b; }
+  .dv-scr.on { fill: #a9d1ef; } .night .dv-scr.on { fill: #3d5a8a; }
+  .laptop .dv-scr.on, .desktop .dv-scr.on { fill: #86b9de; } .night .laptop .dv-scr.on, .night .desktop .dv-scr.on { fill: #35507e; }
+  .dv-text rect { fill: #fff; opacity: .7; } .night .dv-text rect { opacity: .45; }
+  .dv-caret { fill: #fff; animation: dv-caret 1.1s steps(1) infinite; }
+  .dv-bar { fill: rgba(255,255,255,.55); } .night .dv-bar { fill: rgba(255,255,255,.2); }
+  .dv-bar-v { fill: var(--c); }
+  .dv-bolt path { fill: #2fb556; } .night .dv-bolt path { fill: #5fe08a; }
+  .dv-bolt { transform-box: fill-box; transform-origin: center; animation: dv-beat 1s ease-in-out infinite; }
+  .dv-low rect { fill: none; stroke: #d93a3a; stroke-width: .8; } .dv-low .tip, .dv-low .lvl { fill: #d93a3a; stroke: none; }
+  .night .dv-low rect { stroke: #ff6b6b; } .night .dv-low .tip, .night .dv-low .lvl { fill: #ff6b6b; }
+  .dv-low { animation: dv-blink 1.5s ease-in-out infinite; }
+  .dv-cable { fill: none; stroke: #5f6b7a; stroke-width: .8; } .night .dv-cable { stroke: #8a95a5; }
+  @keyframes dv-drift { from { transform: translateX(0); } to { transform: translateX(7px); } }
+  @keyframes dv-twinkle { from { opacity: .3; } to { opacity: 1; } }
+  @keyframes dv-caret { 0% { opacity: 1; } 50% { opacity: 0; } }
+  @keyframes dv-beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+  @keyframes dv-blink { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+  /* The round icon (40 px, in the color of the devices' state, the Mobile App badge at its bottom right), then the
+     title and the subtitle, on the wall at the left. */
+  .htext { position: absolute; z-index: 1; left: 0; top: 0; bottom: var(--g); right: var(--sw); display: flex; align-items: center; gap: 10px;
+           padding: 8px 8px 8px 12px; min-width: 0; }
+  .htext .titles { flex: 1 1 auto; min-width: 0; container: dc-titles / inline-size; display: flex; flex-direction: column; align-items: flex-start; }
+  .htext .titles > * { max-width: 100%; }
+  .banner .chip { background: color-mix(in srgb, var(--c) 18%, rgba(255,255,255,.78)); color: color-mix(in srgb, var(--c) 45%, #0d2a45); }
+  .banner.night .chip { background: color-mix(in srgb, var(--c) 30%, rgba(8,18,38,.55)); color: color-mix(in srgb, var(--c) 35%, #ffffff); }
+  .banner .name { font-size: 16px; font-weight: 500; }
+  .banner .sub { font-size: 13px; color: #3b5b78; }
+  .banner.night .sub { color: rgba(255,255,255,.78); }
+  .banner .badge { background: rgba(255,255,255,.62); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 22%, transparent); }
+  .banner .badge .icon { fill: color-mix(in srgb, var(--c) 82%, #0d2a45); }
+  .banner.night .badge { background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }
+  .banner.night .badge .icon { fill: color-mix(in srgb, var(--c) 72%, #fff); }
+  .banner .zoom { position: absolute; z-index: 2; top: 5px; right: 5px; margin: 0; width: 24px; height: 24px; box-sizing: border-box; border: none; color: #33506b;
+                  background: rgba(255,255,255,.55); box-shadow: inset 0 0 0 1px rgba(255,255,255,.7); backdrop-filter: blur(4px); }
+  .banner .zoom .icon { width: 16px; height: 16px; }
+  .banner .zoom:hover { background: rgba(255,255,255,.75); color: #33506b; }
+  .banner.night .zoom { color: #fff; background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); }
+  .banner.night .zoom:hover { background: rgba(255,255,255,.22); color: #fff; }
+  /* Narrow card: no room for the desk beside the text, the wall and the desk strip alone stay. */
+  /* Mid-width card: the text takes the window's place (the window goes); up to 360 px the devices are drawn at 70 %
+     (140 px wide, 56 px high, their area about 105 px from the right edge), up to 300 px at 60 %, and at 280 px or less
+     only the desk strip stays, so that the title block keeps room for a whole status pill in every language. */
+  @container dc-card (max-width: 420px) {
+    .htext { right: calc(var(--sw) - 46px); }
+    .dv-pane, .dv-frame, .dv-scene > g[clip-path] { display: none; }
+  }
+  @container dc-card (max-width: 360px) { .banner { --sw: 140px; } .htext { right: 108px; } }
+  @container dc-card (max-width: 300px) { .banner { --sw: 120px; } .htext { right: 92px; } }
+  @container dc-card (max-width: 280px) { .dv-scene { display: none; } .htext { right: 0; padding-right: 34px; } }
+`;
+
+// Night picture: forced by illustration_theme, else the sun below the horizon or Home Assistant's dark theme.
+const isNight = (hass, config) => {
+  if (config.illustration_theme === "night") return true;
+  if (config.illustration_theme === "day") return false;
+  return hass?.states?.["sun.sun"]?.state === "below_horizon" || !!hass?.themes?.darkMode;
+};
+
+// The state of the devices together, the color of the header icon: a low battery (red), a device not seen for a
+// while (amber), one charging (blue), else all good (green), grey when no device reports a battery.
+const headerState = (items) => {
+  if (items.some((i) => i.battery.low)) return "crit";
+  if (items.some((i) => i.stale)) return "warn";
+  if (items.some((i) => i.battery.charging)) return "active";
+  return items.some((i) => i.battery.v !== null) ? "ok" : "idle";
+};
+
+// The width of an element's whole text in fractional pixels, even while it is cut with an ellipsis (0 when hidden).
+const textWidth = (el) => {
+  if (!el?.getClientRects?.().length || typeof document.createRange !== "function") return 0;
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  return range.getBoundingClientRect().width;
+};
+
+let _uid = 0;
+
+// ---------------------------------------------------------------------------
 // Styles
 // ---------------------------------------------------------------------------
 
 const BASE_STYLE = `
   :host { --dc-accent: #009688; --dc-ok: var(--success-color, #43a047); --dc-warn: var(--warning-color, #ffa600);
           --dc-crit: var(--error-color, #db4437); --dc-idle: var(--disabled-text-color, #9e9e9e); --dc-active: var(--info-color, #039be5); }
-  ha-card { overflow: hidden; container-type: inline-size; position: relative; }
+  ha-card { overflow: hidden; container: dc-card / inline-size; position: relative; }
   /* A size container has no width of its own: this zero-height grid gives the card a natural width without a minimum. */
   :host { display: block; min-width: 0; --dc-natural-width: 380px; }
   :host::before { content: ""; display: grid; grid-template-columns: minmax(0, var(--dc-natural-width)); height: 0; }
@@ -3151,14 +3478,29 @@ const BASE_STYLE = `
           flex: 0 1 auto; min-width: 0; max-width: 50%; overflow: hidden; box-sizing: border-box; }
   .chip-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .header { display: flex; align-items: center; gap: 10px; padding: 12px 12px 0; }
-  .header:has(.sub) > .chip { margin-bottom: 14.4px; }
-  .titles { flex: 1 1 0; min-width: 5ch; }
-  :host([hide-title]) .titles > .name, :host([hide-subtitle]) .titles > .sub { display: none; }
+  .titles { flex: 1 1 0; min-width: 5ch; container: dc-titles / inline-size; display: flex; flex-direction: column; align-items: flex-start; }
+  .titles > * { max-width: 100%; }
+  /* Banner and classic header: the state pill sits on the title line, right after the title, when the whole title and
+     its whole label fit there; otherwise it goes on its own line under the subtitle, and when even that is too tight
+     only its dot is left (the label stays in its tooltip and aria-label). Decided by measure (see _fitPill). */
+  .trow { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .trow .name { flex: 0 1 auto; min-width: 0; }
+  .trow .chip { flex: none; max-width: none; line-height: 16px; }
+  .titles.pill-below .trow { display: contents; }
+  .titles.pill-below .trow .name { max-width: 100%; }
+  .titles.pill-below .trow .chip { order: 3; margin-top: 3px; max-width: 100%; }
+  .titles.pill-dot .chip { padding: 4px; } .titles.pill-dot .chip-text { display: none; }
+  :host([hide-title]) .titles .name, :host([hide-subtitle]) .titles > .sub { display: none; }
   .name { font-size: 16px; font-weight: 500; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .sub { font-size: 12px; color: var(--secondary-text-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .badge { position: relative; display: flex; flex: none; width: 40px; height: 40px; border-radius: 50%; align-items: center; justify-content: center;
-           background: color-mix(in srgb, var(--dc-accent) 16%, transparent); }
-  .badge .icon { width: 24px; height: 24px; fill: color-mix(in srgb, var(--dc-accent) 70%, var(--primary-text-color)); fill-rule: nonzero; }
+           background: color-mix(in srgb, var(--c, var(--dc-accent)) 16%, transparent); }
+  .badge .icon { width: 24px; height: 24px; fill: color-mix(in srgb, var(--c, var(--dc-accent)) 70%, var(--primary-text-color)); fill-rule: nonzero; }
+  /* The Mobile App logo on the header icon: on a white tile, readable on any theme. */
+  .brand { position: absolute; right: -4px; bottom: -4px; width: 18px; height: 18px; border-radius: 5px; padding: 2px; box-sizing: border-box;
+           display: grid; place-items: center; background: #fff;
+           box-shadow: 0 0 0 1px var(--divider-color, rgba(0,0,0,.12)), 0 0 0 2px var(--card-background-color, #fff); }
+  .brand img { width: 100%; height: 100%; object-fit: contain; }
   .warning { padding: 16px; color: color-mix(in srgb, var(--dc-warn) 50%, var(--primary-text-color)); }
   .zoom { all: unset; flex: none; cursor: pointer; width: 24px; height: 24px; margin: -2px -4px 0 0; border-radius: 50%;
           display: grid; place-items: center; color: var(--secondary-text-color);
@@ -3184,11 +3526,9 @@ const BASE_STYLE = `
   .popup .p-title .icon { color: var(--dc-crit); width: 20px; height: 20px; }
   .popup .p-text { font-size: 13px; color: var(--secondary-text-color); }
   .popup .p-actions { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
-  @container (max-width: 230px) {
-    .chip { padding: 4px; flex: none; }
-    .chip-text { display: none; }
-    .header { gap: 6px; }
-  }
+  @container dc-card (max-width: 230px) { .header { gap: 6px; } }
+  /* At 200 px or less, only the pill's dot: its label stays in its tooltip and for screen readers. */
+  @container dc-card (max-width: 200px) { .chip { padding: 4px; flex: none; } .chip-text { display: none; } }
 `;
 
 const FULL_STYLE = `
@@ -3226,11 +3566,11 @@ const FULL_STYLE = `
   .tile .bar > div { height: 100%; border-radius: 3px; background: var(--c, var(--dc-ok)); transition: width .6s ease; }
   .actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
   .sent { font-size: 12px; color: var(--secondary-text-color); }
-  @container (max-width: 300px) {
+  @container dc-card (max-width: 300px) {
     .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .body { padding-left: 12px; }
   }
-  @container (max-width: 200px) {
+  @container dc-card (max-width: 200px) {
     .tiles { grid-template-columns: minmax(0, 1fr); }
     .row .chevron { display: none; }
   }
@@ -3322,6 +3662,7 @@ class DeviceBase extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
     this._html = "";
+    this._uid = ++_uid;
     this._toggled = new Map();
     this.shadowRoot.addEventListener("click", (ev) => this._onClick(ev));
     // Enter / Space on an element with the button role acts as a click, as on a <button>; Escape closes the popup.
@@ -3356,7 +3697,7 @@ class DeviceBase extends HTMLElement {
     const { list } = findDevices(h, this._config);
     if (!list) return null;
     const ids = list.flatMap((d) => Object.values(d.entities));
-    return [h.entities, h.devices, h.services, h.language, h.locale, h.themes?.darkMode, this._minute, ...ids.map((id) => h.states[id])];
+    return [h.entities, h.devices, h.services, h.language, h.locale, h.themes?.darkMode, h.states["sun.sun"]?.state, this._minute, ...ids.map((id) => h.states[id])];
   }
 
   connectedCallback() {
@@ -3368,6 +3709,18 @@ class DeviceBase extends HTMLElement {
       this._update();
     });
     this._outside.on();
+    // A new width (or the web font loaded): the status pill is fitted again, in the next frame.
+    if (typeof ResizeObserver === "function") {
+      this._pillResize ??= new ResizeObserver((entries) => {
+        const w = Math.round(entries.at(-1).contentRect.width);
+        if (w === this._pillWidth) return;
+        this._pillWidth = w;
+        cancelAnimationFrame(this._pillFrame);
+        this._pillFrame = requestAnimationFrame(() => this._fitPill());
+      });
+      this._pillResize.observe(this);
+    }
+    document.fonts?.ready?.then(() => this._fitPill());
     if (this._hass && this._config) this._update();
     // "5 min ago" moves on its own: re-checked every minute while the card is on the page.
     clearInterval(this._tick);
@@ -3380,6 +3733,8 @@ class DeviceBase extends HTMLElement {
   disconnectedCallback() {
     clearInterval(this._tick);
     this._tick = null;
+    this._pillResize?.disconnect();
+    this._pillWidth = null;
     this._outside?.off();
     // Left (another dashboard view, a conditional card hidden): back to the defaults, the popup closed without ringing.
     this._toggled = new Map();
@@ -3434,11 +3789,42 @@ class DeviceBase extends HTMLElement {
     const root = this.shadowRoot;
     if (!root.firstChild || typeof document.createElement("template").content === "undefined") {
       root.innerHTML = html;
+      this._fitPill();
       return;
     }
     const tpl = document.createElement("template");
     tpl.innerHTML = html;
     morph(root, tpl.content);
+    this._fitPill();
+  }
+
+  // The status pill goes on the title row, right after the title, only when the whole title and the pill's whole
+  // label fit there; otherwise it takes its own line under the subtitle (.pill-below) and the title keeps its row
+  // (cut only when it does not fit alone). The subtitle then keeps one line (its whole text in its tooltip), and when
+  // the block still runs out of the banner or into its ground strip, or the label does not fit its own line, the pill
+  // keeps its dot alone (.pill-dot, the label in its tooltip and aria-label). Measured after each render and on each
+  // new width, never by a fixed width, so that every language fits.
+  _fitPill() {
+    for (const t of this.shadowRoot?.querySelectorAll?.(".titles") || []) {
+      const chips = [...t.querySelectorAll(".chip")];
+      if (!chips[0]?.getBoundingClientRect) continue;
+      t.classList.remove("pill-below", "pill-dot");
+      const sub = t.querySelector(".sub");
+      sub?.removeAttribute("title");
+      if (!chips[0].querySelector(".chip-text")?.getClientRects().length) continue;
+      const avail = t.getBoundingClientRect().width;
+      const gap = parseFloat(getComputedStyle(chips[0].parentElement).columnGap) || 0;
+      const widths = chips.map((c) => c.getBoundingClientRect().width);
+      if (textWidth(t.querySelector(".name")) + widths.reduce((w, c) => w + gap + c, 0) <= avail + 0.01) continue;
+      t.classList.add("pill-below");
+      if (sub && sub.scrollWidth > sub.clientWidth) sub.title = sub.textContent.trim();
+      const banner = t.closest(".banner");
+      const box = banner?.getBoundingClientRect();
+      const floor = banner?.querySelector(".ground")?.getBoundingClientRect().top ?? box?.bottom;
+      const r = t.getBoundingClientRect();
+      const out = box && (r.top < box.top - 0.5 || r.bottom > floor + 0.5);
+      if (out || widths.some((w) => w > avail + 0.01)) t.classList.add("pill-dot");
+    }
   }
 
   _onClick(ev) {
@@ -3498,12 +3884,16 @@ class DeviceBase extends HTMLElement {
 
   // ---- Parts -------------------------------------------------------------
 
+  // The state pill of the header, in the colour of its round icon (headerState): low batteries, devices offline,
+  // one device charging, else all good.
   _pill(items) {
     const low = items.filter((i) => i.battery.low).length;
     const stale = items.filter((i) => i.stale).length;
-    if (low) return this._chip("crit", this._t("pill_low", { n: low }));
-    if (stale) return this._chip("warn", this._t("pill_stale", { n: stale }));
-    return this._chip("ok", this._t("pill_ok"));
+    const cls = headerState(items);
+    if (low) return this._chip(cls, this._t("pill_low", { n: low }));
+    if (stale) return this._chip(cls, this._t("pill_stale", { n: stale }));
+    if (items.length === 1 && items[0].battery.charging) return this._chip(cls, this._t("state_charging"));
+    return this._chip(cls, this._t("pill_ok"));
   }
 
   _chip(cls, text, entity) {
@@ -3519,6 +3909,8 @@ class DeviceBase extends HTMLElement {
     return new RegExp(`^${prefix}`, "i").test(os) ? os : `${prefix} ${os}`;
   }
 
+  // The header: the illustration with the title, its state pill and the subtitle on its wall (the state also in the
+  // icon's color), or the classic header (illustration: false), its state pill at the same place after the title.
   _header(items) {
     const c = this._config;
     const single = items.length === 1 ? items[0] : null;
@@ -3526,16 +3918,49 @@ class DeviceBase extends HTMLElement {
     const sub = single
       ? [single.dev.name, modelName(single.dev), this._system(single)].filter(Boolean).join(" · ")
       : this._t("n_devices", { n: items.length });
-    return `
+    const badge = `<span class="badge ${headerState(items)}">${svgIcon(ICONS.devices)}${this._brand()}</span>`;
+    if (c.illustration === false) {
+      return `
       <div class="header">
-        <span class="badge">${svgIcon(ICONS.devices)}</span>
+        ${badge}
         <div class="titles">
-          <div class="name">${esc(title)}</div>
+          <div class="trow"><div class="name">${esc(title)}</div>${this._pill(items)}</div>
           ${sub ? `<div class="sub">${esc(sub)}</div>` : ""}
         </div>
-        ${this._pill(items)}
         ${this._zoomButton()}
       </div>`;
+    }
+    // The state in the pill right after the title, the subtitle under them.
+    const line = [sub, this._seenText(items, single)].filter(Boolean).join(" · ");
+    return `
+      <div class="banner${isNight(this._hass, c) ? " night" : ""}">
+        ${deviceSceneSvg(this._uid, items)}
+        <div class="ground"></div>
+        <div class="htext">
+          ${badge}
+          <div class="titles">
+            <div class="trow"><div class="name">${esc(title)}</div>${this._pill(items)}</div>
+            ${line ? `<div class="sub">${esc(line)}</div>` : ""}
+          </div>
+        </div>
+        ${this._zoomButton()}
+      </div>`;
+  }
+
+  // What the subtitle adds to the pill: when one device is offline (and its battery is not low), when it was last seen.
+  _seenText(items, single) {
+    if (!single || !single.stale || single.battery.low) return "";
+    return this._t("seen", { ago: fmtAgo(single.lastSeen, this._opts().now, this._locale()) });
+  }
+
+  // The Mobile App logo on the header icon, when the build embedded it.
+  _brand() {
+    return MOBILE_APP_LOGO.startsWith("data:") ? `<span class="brand" title="Mobile App"><img src="${MOBILE_APP_LOGO}" alt=""></span>` : "";
+  }
+
+  // The illustration's styles, only when it is shown.
+  _sceneStyle() {
+    return this._config.illustration === false ? "" : SCENE_STYLE;
   }
 
   _zoomButton() {
@@ -3588,7 +4013,7 @@ class DeviceCard extends DeviceBase {
     const { items, error, ref } = this._read();
     if (error) return this._errorCard(error, ref);
     this._count = items.length;
-    return `<style>${BASE_STYLE}${RING_STYLE}${FULL_STYLE}</style>
+    return `<style>${BASE_STYLE}${RING_STYLE}${FULL_STYLE}${this._sceneStyle()}</style>
       <ha-card>
         ${this._header(items)}
         <div class="list">${items.map((it) => this._device(it)).join("")}</div>
@@ -3887,7 +4312,7 @@ class DeviceMiniCard extends DeviceCard {
         </div>`;
       })
       .join("");
-    return `<style>${BASE_STYLE}${RING_STYLE}${MINI_STYLE}</style>
+    return `<style>${BASE_STYLE}${RING_STYLE}${MINI_STYLE}${this._sceneStyle()}</style>
       <ha-card>
         ${this._header(items)}
         <div class="rings">${rings}</div>
@@ -3937,7 +4362,7 @@ const cleanConfig = (value, defaults) => {
 class DeviceCardEditor extends HTMLElement {
   // [name, default]
   static get toggles() {
-    return [["show_title", true], ["show_subtitle", true], ...TOGGLES.map((n) => [n, true])];
+    return [["illustration", true], ["show_title", true], ["show_subtitle", true], ...TOGGLES.map((n) => [n, true])];
   }
 
   setConfig(config) {
@@ -3961,6 +4386,10 @@ class DeviceCardEditor extends HTMLElement {
       ...(deviceRefs(this._config).length ? [] : [{ name: "exclude", selector: devicePicker }]),
       { name: "title", selector: { text: {} } },
       { type: "grid", name: "", schema: this.constructor.toggles.map(([name]) => ({ name, selector: { boolean: {} } })) },
+      {
+        name: "illustration_theme",
+        selector: { select: { mode: "dropdown", options: THEMES.map((value) => ({ value, label: tr({ auto: "theme_auto", day: "theme_day", night: "theme_night" }[value]) })) } },
+      },
       select("sort", SORTS, "sort"),
       select("details", DETAILS, "details"),
       { name: "low_battery", selector: { number: { min: 1, max: 99, mode: "box", unit_of_measurement: "%" } } },

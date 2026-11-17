@@ -27,7 +27,9 @@ The devices and their sensors are **discovered automatically** from the Home Ass
 ## Features
 
 - Two cards: a full **Device Card** (`custom:device-card`) and a compact **Device Mini Card** (`custom:device-mini-card`)
-- Header with a status pill: **All good**, **1 low** (battery under `low_battery`) or **2 offline** (not reported for `stale_after` hours)
+- **Animated illustrated header** (90 px, full and mini card): the card's own devices (laptop, computer, tablet, phone, watch, car) standing on a desk, each with its state on its screen — a beating green bolt and a cable while charging, a blinking red battery when low, a dark screen when offline, else its battery level — and a window with the sun and a drifting cloud by day, the moon and stars by night (night after sunset or with the dark theme; `illustration_theme` forces it)
+- The header icon is in the color of the devices' state (red: a low battery, amber: a device offline, blue: charging, green: all good), with the Mobile App logo as a badge; the state also reads in a pill right after the title (**1 low**, **Charging**, **All good**)
+- Classic header (`illustration: false`) with a status pill: **All good**, **1 low** (battery under `low_battery`) or **2 offline** (not reported for `stale_after` hours)
 - One row per device: a small **battery ring** around the device's icon (green, blue while charging, red when low), its name, one line with the charging state, the Wi-Fi network or the zone, and **seen 2 days ago** when it stopped reporting, and the battery level on the right (red when low)
 - **Animated ring**: a light runs round it with a beating bolt while charging, it pulses in red when the battery is low (see [Animations](#animations))
 - Click a row to unfold its **details** inline: battery (state, charger, Low Power Mode, health, temperature, time to full), last update, location (zone and geocoded place), connection (Wi-Fi network, cellular technology and carrier), storage (free of total, in GiB), Focus, Do Not Disturb, ringer, activity, system and Companion app versions; for a **Mac**: in use or idle, locked, displays, frontmost app, camera and microphone in use
@@ -117,6 +119,8 @@ devices:
       battery: sensor.work_phone_battery_level
   - 0a1b2c3d4e5f60718293a4b5c6d7e8f9
 title: Our devices
+illustration: true
+illustration_theme: auto
 show_title: true
 show_subtitle: true
 show_location: true
@@ -150,6 +154,8 @@ sort: battery
 | `devices` | both | All | Devices to show, in this order with `sort: none`: device names (as shown in Home Assistant) or device ids (set by the visual editor). An item can also be an object with per-device options — `device` (name or id), `name`, `kind` (`phone`, `tablet`, `laptop`, `desktop`, `car`, `watch`, `other`: the icon), `notify` (the notify service used to ring it) and `entities` (see [Entities](#entities)); such a list is **YAML only** |
 | `exclude` | both | — | Devices left out when `devices` is not set (names or ids) |
 | `title` | both | Devices | Card title |
+| `illustration` | both | `true` | Animated illustrated header (devices on a desk); `false` for the classic header with its status pill |
+| `illustration_theme` | both | `auto` | `auto` (night when `sun.sun` is below the horizon or the theme is dark), `day` or `night` |
 | `show_title` | both | `true` | Show the title in the header |
 | `show_subtitle` | both | `true` | Show the number of devices under the title (for a single device: its name, model and system) |
 | `show_location` | both | `true` | Zone or geocoded place, in the row's line and in the details |

@@ -372,3 +372,36 @@ test("every English text is used by the cards", async () => {
     assert.ok(code.includes(`"${k}"`), k);
   }
 });
+
+test("the illustrated header: the devices on a desk, night from the sun or the option, the icon in the state's color", () => {
+  const h = html(newCard());
+  assert.match(h, /class="banner"/);
+  assert.match(h, /class="dv-scene"/);
+  assert.match(h, /class="ground"/);
+  assert.match(h, /class="badge crit"/, "a low battery turns the icon red");
+  // The state in a pill right after the title, in the icon's colour; the subtitle does not repeat it.
+  assert.match(h, /<div class="trow"><div class="name">Devices<\/div><span class="chip crit" role="img" title="1 low" aria-label="1 low"><span class="dot"><\/span><span class="chip-text">1 low<\/span><\/span><\/div>/);
+  assert.match(h, /<div class="sub">5 devices<\/div>/);
+  assert.match(html(newCard({ devices: ["phone"] })), /class="chip active"[^>]*><span class="dot"><\/span><span class="chip-text">Charging</);
+  assert.match(h, /class="dv-bolt"/, "the charging phone shows a bolt");
+  assert.match(h, /class="dv-cable"/);
+  assert.match(html(newCard({ devices: ["phone"] })), /class="badge active"/);
+  const night = (cfg, sun, dark) => /class="banner night"/.test(html(newCard(cfg, makeHass({ ...moved(), ...(sun ? { "sun.sun": { state: sun } } : {}) }, { themes: { darkMode: dark } }))));
+  assert.equal(night({}, "below_horizon", false), true);
+  assert.equal(night({}, "above_horizon", true), true, "dark theme while the sun is up: night");
+  assert.equal(night({}, "above_horizon", false), false, "light theme while the sun is up: day");
+  assert.equal(night({ illustration_theme: "day" }, "above_horizon", true), false);
+  assert.equal(night({}, null, true), true);
+  assert.equal(night({ illustration_theme: "night" }, "above_horizon", false), true);
+  assert.equal(night({ illustration_theme: "day" }, "below_horizon", true), false);
+  const a = html(newCard()).match(/id="(dv-win-\d+)"/)[1];
+  const b = html(newCard()).match(/id="(dv-win-\d+)"/)[1];
+  assert.notEqual(a, b, "each card has its own svg ids");
+  const classic = html(newCard({ illustration: false }));
+  assert.doesNotMatch(classic, /class="banner|dv-scene/);
+  assert.match(classic, /class="header"/);
+  assert.match(classic, /class="badge crit"/);
+  // The classic header has the state pill right after the title, like the banner.
+  assert.match(classic, /<div class="trow"><div class="name">Devices<\/div><span class="chip crit"[^>]*>.*?1 low<\/span><\/span><\/div>\s*<div class="sub">/s);
+  assert.match(html(newCard({}, makeHass(), dc.DeviceMiniCard)), /class="banner"/);
+});

@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.0 - 2026-11-17
+
+### Features
+- **Animated illustrated header** on the full and the mini card (90 px): the card's own devices (laptop, computer, tablet, phone, watch, car, by their kind) standing on a desk, each showing its state on its screen — a beating green bolt and a cable while charging, a blinking red battery when low, a dark screen when offline, else its battery level — with a window showing the sun and a drifting cloud by day, the moon and twinkling stars by night, and a 10 px desk strip under the whole banner.
+- Night picture after sunset (`sun.sun`) or with the dark theme, forced with `illustration_theme: day | night`; `illustration: false` keeps the classic header with its status pill. Both options are in the visual editors of both cards.
+- The header icon takes the color of the devices' state (red: a low battery, amber: offline, blue: charging, green: all good, grey: no battery reported), in the illustrated and the classic header, with the Mobile App logo as a badge.
+- **State pill on the title line** of the illustrated header (full and mini cards): right after the title, in the round icon's colour (*Charging* for a single charging device), only when the whole title and its whole label fit there; otherwise on its own line under the subtitle (then kept to one line), and only its dot when even that does not fit in the banner or the card is 200 px wide or less. Measured on the rendered card, so that it fits in every language; the subtitle no longer repeats it. On a mid-width card the text takes the window's place and the devices are drawn smaller (only the desk strip at 280 px or less), so that the pill keeps its whole label in every language. The mini card's expand/collapse button is a 24 px frosted round button in the banner's top-right corner.
+- The classic header (`illustration: false`) puts its state pill in the same place, right after the title (under the subtitle when the whole title and label do not fit side by side, only its dot at 200 px or less), instead of at the far right.
+- Night picture with the dark theme even while the sun is up
+
 ## 1.0.0 - 2026-11-14
 
 ### Features
