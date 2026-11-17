@@ -399,5 +399,7 @@ test("the illustrated header: the devices on a desk, night from the sun or the o
   assert.doesNotMatch(classic, /class="banner|dv-scene/);
   assert.match(classic, /class="header"/);
   assert.match(classic, /class="badge crit"/);
+  // The classic header has the state pill right after the title, like the banner.
+  assert.match(classic, /<div class="trow"><div class="name">Devices<\/div><span class="chip crit"[^>]*>.*?1 low<\/span><\/span><\/div>\s*<div class="sub">/s);
   assert.match(html(newCard({}, makeHass(), dc.DeviceMiniCard)), /class="banner"/);
 });

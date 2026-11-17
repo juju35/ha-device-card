@@ -3402,21 +3402,8 @@ const SCENE_STYLE = `
            padding: 8px 8px 8px 12px; min-width: 0; }
   .htext .titles { flex: 1 1 auto; min-width: 0; container: dc-titles / inline-size; display: flex; flex-direction: column; align-items: flex-start; }
   .htext .titles > * { max-width: 100%; }
-  /* The state pill sits on the title line, right after the title: the title ellipsises first (never under 4
-     characters), the pill keeps its whole label. Without room for both, the pill goes on its own line under the
-     subtitle; on a very narrow card only its dot is left (the label stays in its tooltip and aria-label). */
-  .trow { display: flex; align-items: center; gap: 8px; min-width: 0; }
-  .trow .name { flex: 0 1 auto; min-width: 4ch; }
-  .trow .chip { flex: none; max-width: calc(100% - 4ch - 8px); line-height: 16px; }
-  @container dc-titles (max-width: 170px) {
-    .trow { display: contents; }
-    .trow .name, .trow .chip { max-width: 100%; }
-    .trow .chip { order: 3; margin-top: 3px; }
-  }
   .banner .chip { background: color-mix(in srgb, var(--c) 18%, rgba(255,255,255,.78)); color: color-mix(in srgb, var(--c) 45%, #0d2a45); }
   .banner.night .chip { background: color-mix(in srgb, var(--c) 30%, rgba(8,18,38,.55)); color: color-mix(in srgb, var(--c) 35%, #ffffff); }
-  /* The classic header keeps only the dot from 230 px; the banner's pill keeps its label down to 200 px. */
-  @container dc-card (min-width: 201px) { .banner .chip { padding: 1px 8px; } .banner .chip-text { display: inline; } }
   .banner .name { font-size: 16px; font-weight: 500; }
   .banner .sub { font-size: 13px; color: #3b5b78; }
   .banner.night .sub { color: rgba(255,255,255,.78); }
@@ -3481,8 +3468,19 @@ const BASE_STYLE = `
           flex: 0 1 auto; min-width: 0; max-width: 50%; overflow: hidden; box-sizing: border-box; }
   .chip-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .header { display: flex; align-items: center; gap: 10px; padding: 12px 12px 0; }
-  .header:has(.sub) > .chip { margin-bottom: 14.4px; }
-  .titles { flex: 1 1 0; min-width: 5ch; }
+  .titles { flex: 1 1 0; min-width: 5ch; container: dc-titles / inline-size; display: flex; flex-direction: column; align-items: flex-start; }
+  .titles > * { max-width: 100%; }
+  /* Banner and classic header: the state pill sits on the title line, right after the title: the title ellipsises first (never under 4
+     characters), the pill keeps its whole label. Without room for both, the pill goes on its own line under the
+     subtitle; on a very narrow card only its dot is left (the label stays in its tooltip and aria-label). */
+  .trow { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .trow .name { flex: 0 1 auto; min-width: 4ch; }
+  .trow .chip { flex: none; max-width: calc(100% - 4ch - 8px); line-height: 16px; }
+  @container dc-titles (max-width: 170px) {
+    .trow { display: contents; }
+    .trow .name, .trow .chip { max-width: 100%; }
+    .trow .chip { order: 3; margin-top: 3px; }
+  }
   :host([hide-title]) .titles .name, :host([hide-subtitle]) .titles > .sub { display: none; }
   .name { font-size: 16px; font-weight: 500; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .sub { font-size: 12px; color: var(--secondary-text-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -3519,11 +3517,9 @@ const BASE_STYLE = `
   .popup .p-title .icon { color: var(--dc-crit); width: 20px; height: 20px; }
   .popup .p-text { font-size: 13px; color: var(--secondary-text-color); }
   .popup .p-actions { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
-  @container dc-card (max-width: 230px) {
-    .chip { padding: 4px; flex: none; }
-    .chip-text { display: none; }
-    .header { gap: 6px; }
-  }
+  @container dc-card (max-width: 230px) { .header { gap: 6px; } }
+  /* At 200 px or less, only the pill's dot: its label stays in its tooltip and for screen readers. */
+  @container dc-card (max-width: 200px) { .chip { padding: 4px; flex: none; } .chip-text { display: none; } }
 `;
 
 const FULL_STYLE = `
@@ -3860,7 +3856,7 @@ class DeviceBase extends HTMLElement {
   }
 
   // The header: the illustration with the title, its state pill and the subtitle on its wall (the state also in the
-  // icon's color), or the classic header with its state pill (illustration: false).
+  // icon's color), or the classic header (illustration: false), its state pill at the same place after the title.
   _header(items) {
     const c = this._config;
     const single = items.length === 1 ? items[0] : null;
@@ -3874,10 +3870,9 @@ class DeviceBase extends HTMLElement {
       <div class="header">
         ${badge}
         <div class="titles">
-          <div class="name">${esc(title)}</div>
+          <div class="trow"><div class="name">${esc(title)}</div>${this._pill(items)}</div>
           ${sub ? `<div class="sub">${esc(sub)}</div>` : ""}
         </div>
-        ${this._pill(items)}
         ${this._zoomButton()}
       </div>`;
     }
