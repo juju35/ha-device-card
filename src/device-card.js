@@ -3426,13 +3426,11 @@ const SCENE_STYLE = `
   @container dc-card (max-width: 260px) { .dv-scene { display: none; } .htext { right: 0; padding-right: 34px; } }
 `;
 
-// Night picture: forced by illustration_theme, else the sun below the horizon, else Home Assistant's dark mode.
+// Night picture: forced by illustration_theme, else the sun below the horizon or Home Assistant's dark theme.
 const isNight = (hass, config) => {
   if (config.illustration_theme === "night") return true;
   if (config.illustration_theme === "day") return false;
-  const sun = hass?.states?.["sun.sun"];
-  if (valid(sun)) return sun.state === "below_horizon";
-  return !!hass?.themes?.darkMode;
+  return hass?.states?.["sun.sun"]?.state === "below_horizon" || !!hass?.themes?.darkMode;
 };
 
 // The state of the devices together, the color of the header icon: a low battery (red), a device not seen for a
