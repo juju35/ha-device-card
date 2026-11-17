@@ -17,7 +17,7 @@ const browser = await chromium?.launch(process.env.CHROMIUM_PATH ? { executableP
 test.after(() => browser?.close());
 
 const LANGUAGES = ["en", "fr", "de", "hu", "el", "ru"];
-const WIDTHS = [190, 245, 300, 400, 460, 500];
+const WIDTHS = [190, 245, 270, 285, 300, 340, 370, 400, 460, 500];
 const VARIANTS = [["device-card", {}], ["device-card", { devices: ["phone"] }], ["device-mini-card", {}]];
 const DATA = { states, entities, devices, services };
 const SEL = { titles: ".titles", chip: ".chip", label: ".chip-text", name: ".name", ground: ".ground", zoom: ".zoom" };
@@ -99,6 +99,9 @@ test("the status pill keeps the title whole beside it, its label whole, inside t
     // Where the height guard (or a label longer than the row) left the dot alone above 200 px.
     if (dots.length) t.diagnostic(`dot only: ${dots.join("; ")}`);
     assert.deepEqual(bad, []);
+    // The banner leaves the title block room for the whole label in every language (the devices drawn smaller at
+    // mid widths): never the dot alone above 200 px.
+    assert.deepEqual(dots, []);
   } finally {
     await page.close();
   }

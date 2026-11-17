@@ -3418,12 +3418,16 @@ const SCENE_STYLE = `
   .banner.night .zoom { color: #fff; background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); }
   .banner.night .zoom:hover { background: rgba(255,255,255,.22); color: #fff; }
   /* Narrow card: no room for the desk beside the text, the wall and the desk strip alone stay. */
-  /* Mid-width card: the text takes the window's place (the window goes), the devices keep theirs. */
-  @container dc-card (max-width: 360px) {
+  /* Mid-width card: the text takes the window's place (the window goes); up to 360 px the devices are drawn at 70 %
+     (140 px wide, 56 px high, their area about 105 px from the right edge), up to 300 px at 60 %, and at 280 px or less
+     only the desk strip stays, so that the title block keeps room for a whole status pill in every language. */
+  @container dc-card (max-width: 420px) {
     .htext { right: calc(var(--sw) - 46px); }
     .dv-pane, .dv-frame, .dv-scene > g[clip-path] { display: none; }
   }
-  @container dc-card (max-width: 260px) { .dv-scene { display: none; } .htext { right: 0; padding-right: 34px; } }
+  @container dc-card (max-width: 360px) { .banner { --sw: 140px; } .htext { right: 108px; } }
+  @container dc-card (max-width: 300px) { .banner { --sw: 120px; } .htext { right: 92px; } }
+  @container dc-card (max-width: 280px) { .dv-scene { display: none; } .htext { right: 0; padding-right: 34px; } }
 `;
 
 // Night picture: forced by illustration_theme, else the sun below the horizon or Home Assistant's dark theme.
