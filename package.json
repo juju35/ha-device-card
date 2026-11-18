@@ -1,6 +1,6 @@
 {
   "name": "ha-device-card",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Lovelace cards for Home Assistant showing the phones, tablets and computers of the Companion app: battery, last update, location, connection, storage, focus and a ring button to find them.",
   "private": true,
   "type": "module",
