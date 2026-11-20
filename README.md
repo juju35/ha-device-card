@@ -33,7 +33,7 @@ The devices and their sensors are **discovered automatically** from the Home Ass
 - One row per device: a small **battery ring** around the device's icon (green, blue while charging, red when low), its name, one line with the charging state, the Wi-Fi network or the zone, and **seen 2 days ago** when it stopped reporting, and the battery level on the right (red when low)
 - **Animated ring**: a light runs round it with a beating bolt while charging, it pulses in red when the battery is low (see [Animations](#animations))
 - Click a row to unfold its **details** inline: battery (state, charger, Low Power Mode, health, temperature, time to full), last update, location (zone and geocoded place), connection (Wi-Fi network, cellular technology and carrier), storage (free of total, in GiB), Focus, Do Not Disturb, ringer, activity, system and Companion app versions; for a **Mac**: in use or idle, locked, displays, frontmost app, camera and microphone in use
-- **Ring device**: a critical notification sent to the device (heard in silent mode and through a Focus on iOS, on the alarm stream on Android), after a confirmation popup at the top of the card
+- **Ring device**: a critical notification sent to the device (heard in silent mode and through a Focus on iOS, on the alarm stream on Android, a plain notification for a third-party Windows or Linux app), after a confirmation popup at the top of the card
 - Detail button on the mini card (top right): it switches the battery rings to the full list and back; a click anywhere outside the card brings the compact view back
 - Unfolded devices fold back, and the popup closes without ringing, on a click elsewhere or when the card leaves the page
 - Click any value to open its Home Assistant more-info dialog

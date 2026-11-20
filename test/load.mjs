@@ -116,5 +116,7 @@ export const load = () => {
        DeviceCard: customElements.get("device-card"), DeviceMiniCard: customElements.get("device-mini-card"),
        DeviceCardEditor: customElements.get("device-card-editor"), DeviceMiniCardEditor: customElements.get("device-mini-card-editor"), window, document })`,
     sandbox,
+    // The file name lets `node --test --experimental-test-coverage` report the card's own coverage.
+    { filename: new URL("../src/device-card.js", import.meta.url).href },
   );
 };

@@ -165,6 +165,16 @@ test("the ring goes through the device's legacy notify service, with a critical 
   assert.equal(dc.ringPayload("ios", "Ring", "m").data.push.sound.critical, 1);
   assert.equal(dc.ringPayload("android", "Ring", "m").data.channel, "alarm_stream");
   assert.equal(dc.ringPayload("android", "Ring", "m").data.priority, "high");
+  // A third-party app (Windows, Linux) gets a plain notification.
+  assert.deepEqual(plain(dc.ringPayload("other", "Ring", "m")), { title: "Ring", message: "m" });
+});
+
+test("a Companion app on Windows or Linux is its own platform, not Android", () => {
+  assert.equal(dc.platformOf({ manufacturer: "Microsoft Corporation", model: "Surface Laptop 5" }, "laptop"), "other");
+  assert.equal(dc.platformOf({ manufacturer: "LENOVO", model: "ThinkPad", sw: "Ubuntu 24.04" }, "laptop"), "other");
+  assert.equal(dc.platformOf({ manufacturer: "Google", model: "Pixel 9", sw: "16" }, "phone"), "android");
+  assert.equal(dc.platformOf({ manufacturer: "Microsoft", model: "Surface Duo", sw: "Android 12" }, "phone"), "android");
+  assert.equal(dc.platformOf({ manufacturer: "Apple", model: "iPhone17,1" }, "phone"), "ios");
 });
 
 test("the devices option picks devices by id or name, with their own options; exclude leaves some out", () => {
@@ -405,4 +415,16 @@ test("the illustrated header: the devices on a desk, night from the sun or the o
   // The classic header has the state pill right after the title, like the banner.
   assert.match(classic, /<div class="trow"><div class="name">Devices<\/div><span class="chip crit"[^>]*>.*?1 low<\/span><\/span><\/div>\s*<div class="sub">/s);
   assert.match(html(newCard({}, makeHass(), dc.DeviceMiniCard)), /class="banner"/);
+});
+
+test("the system line adds the system's name to a bare version only", () => {
+  const card = newCard();
+  const sys = (platform, model, os) => card._system({ dev: { platform, model, sw: "" }, s: (k) => (k === "os_version" ? { state: os } : undefined) });
+  assert.equal(sys("android", "Pixel 9", "16"), "Android 16");
+  assert.equal(sys("ios", "iPhone17,1", "18.1"), "iOS 18.1");
+  assert.equal(sys("ios", "iPad14,1", "18.1"), "iPadOS 18.1");
+  assert.equal(sys("ios", "iPad14,1", "iPadOS 18.1"), "iPadOS 18.1");
+  // Another system's version is kept as it is, bare or named.
+  assert.equal(sys("other", "Desktop", "Microsoft Windows 11 Pro"), "Microsoft Windows 11 Pro");
+  assert.equal(sys("other", "Desktop", "10.0.22631"), "10.0.22631");
 });

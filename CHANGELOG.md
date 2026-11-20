@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.1.2 - 2026-11-20
+
+### Fixes
+- System line: a version that already names its system (a computer whose app reports "Microsoft Windows 11") is shown as it is, no longer as "Android Microsoft Windows 11"; a bare version still gets its system's name ("iOS 18.1", "Android 16").
+- A third-party Companion app on Windows or Linux is no longer read as Android: its ring is a plain notification (no Android alarm-stream payload) and its version is shown as it is.
+- Safari before 18: the frosted buttons and the veil get their blur too (`-webkit-backdrop-filter`).
+- Leaving the page also cancels a pending header measurement and the "sent" note of a ring.
+
+### Maintenance
+- The unit tests report the card's own coverage.
+
 ## 1.1.1 - 2026-11-18
 
 ### Fixes

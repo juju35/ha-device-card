@@ -2988,9 +2988,14 @@ const kindOf = (dev, hasBattery) => {
   return "other";
 };
 
-// ios, macos or android: the notification payload and the system name depend on it.
+// ios, macos, android or other (a third-party Companion app on Windows or Linux): the notification payload and the
+// system name depend on it.
+const OTHER_SYSTEM = /windows|microsoft|linux|ubuntu|debian|fedora|gnome|\bkde\b/i;
 const platformOf = (dev, kind) => {
-  if (!/apple/i.test(dev.manufacturer || "") && !/^(iphone|ipad|mac|imac)/i.test(dev.model || "")) return "android";
+  if (!/apple/i.test(dev.manufacturer || "") && !/^(iphone|ipad|mac|imac)/i.test(dev.model || "")) {
+    const text = `${dev.manufacturer || ""} ${dev.model || ""} ${dev.sw || ""}`;
+    return OTHER_SYSTEM.test(text) && !/android/i.test(text) ? "other" : "android";
+  }
   return kind === "laptop" || kind === "desktop" ? "macos" : "ios";
 };
 
@@ -3106,10 +3111,13 @@ const notifyService = (hass, dev) => {
 
 // The data of a "ring" notification: iOS and macOS play a critical alert (heard in silent mode and through a
 // Focus, once critical alerts are allowed for the app); Android sends it on the alarm stream, at high priority.
-const ringPayload = (platform, title, message) =>
-  platform === "android"
+// Any other app gets a plain notification (no payload of another system).
+const ringPayload = (platform, title, message) => {
+  if (platform === "other") return { title, message };
+  return platform === "android"
     ? { title, message, data: { ttl: 0, priority: "high", importance: "high", channel: "alarm_stream", vibrationPattern: "100, 1000, 100, 1000, 100", tag: "device-card-ring" } }
     : { title, message, data: { push: { sound: { name: "default", critical: 1, volume: 1 }, "interruption-level": "critical" } } };
+};
 
 // ---------------------------------------------------------------------------
 // Reading a device
@@ -3412,7 +3420,7 @@ const SCENE_STYLE = `
   .banner.night .badge { background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }
   .banner.night .badge .icon { fill: color-mix(in srgb, var(--c) 72%, #fff); }
   .banner .zoom { position: absolute; z-index: 2; top: 5px; right: 5px; margin: 0; width: 24px; height: 24px; box-sizing: border-box; border: none; color: #33506b;
-                  background: rgba(255,255,255,.55); box-shadow: inset 0 0 0 1px rgba(255,255,255,.7); backdrop-filter: blur(4px); }
+                  background: rgba(255,255,255,.55); box-shadow: inset 0 0 0 1px rgba(255,255,255,.7); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
   .banner .zoom .icon { width: 16px; height: 16px; }
   .banner .zoom:hover { background: rgba(255,255,255,.75); color: #33506b; }
   .banner.night .zoom { color: #fff; background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); }
@@ -3519,7 +3527,7 @@ const BASE_STYLE = `
   .btn.main:hover { background: color-mix(in srgb, var(--b, var(--dc-accent)) 18%, transparent); }
   .btn.danger { --b: var(--dc-crit); }
   /* Ring confirmation: at the top of the card, over a veil of the card. */
-  .veil { position: absolute; inset: 0; z-index: 2; background: color-mix(in srgb, var(--card-background-color, #fff) 55%, transparent); backdrop-filter: blur(2px); }
+  .veil { position: absolute; inset: 0; z-index: 2; background: color-mix(in srgb, var(--card-background-color, #fff) 55%, transparent); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); }
   .popup { position: absolute; z-index: 3; top: 8px; left: 8px; right: 8px; padding: 14px; border-radius: 14px; display: flex; flex-direction: column; gap: 8px;
            background: var(--card-background-color, #fff); border: 1px solid color-mix(in srgb, var(--dc-crit) 40%, var(--divider-color, transparent));
            box-shadow: 0 6px 24px rgba(0,0,0,.25); }
@@ -3736,6 +3744,9 @@ class DeviceBase extends HTMLElement {
     this._tick = null;
     this._pillResize?.disconnect();
     this._pillWidth = null;
+    if (typeof cancelAnimationFrame === "function") cancelAnimationFrame(this._pillFrame);
+    clearTimeout(this._sentTimer);
+    this._sent = null;
     this._outside?.off();
     // Left (another dashboard view, a conditional card hidden): back to the defaults, the popup closed without ringing.
     this._toggled = new Map();
@@ -3906,8 +3917,11 @@ class DeviceBase extends HTMLElement {
     const d = it.dev;
     const os = valid(it.s("os_version")) ? it.s("os_version").state : d.sw;
     if (!os) return "";
+    // A bare version number gets its system's name; a version that names its system ("Windows 11", "iPadOS 18") is
+    // kept as it is, as is the bare version of another system (Windows, Linux).
+    if (!/^\d/.test(String(os).trim())) return os;
     const prefix = { ios: /ipad/i.test(d.model) ? "iPadOS" : "iOS", macos: "macOS", android: "Android" }[d.platform];
-    return new RegExp(`^${prefix}`, "i").test(os) ? os : `${prefix} ${os}`;
+    return prefix ? `${prefix} ${os}` : os;
   }
 
   // The header: the illustration with the title, its state pill and the subtitle on its wall (the state also in the
