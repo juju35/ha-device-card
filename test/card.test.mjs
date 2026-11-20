@@ -165,6 +165,16 @@ test("the ring goes through the device's legacy notify service, with a critical 
   assert.equal(dc.ringPayload("ios", "Ring", "m").data.push.sound.critical, 1);
   assert.equal(dc.ringPayload("android", "Ring", "m").data.channel, "alarm_stream");
   assert.equal(dc.ringPayload("android", "Ring", "m").data.priority, "high");
+  // A third-party app (Windows, Linux) gets a plain notification.
+  assert.deepEqual(plain(dc.ringPayload("other", "Ring", "m")), { title: "Ring", message: "m" });
+});
+
+test("a Companion app on Windows or Linux is its own platform, not Android", () => {
+  assert.equal(dc.platformOf({ manufacturer: "Microsoft Corporation", model: "Surface Laptop 5" }, "laptop"), "other");
+  assert.equal(dc.platformOf({ manufacturer: "LENOVO", model: "ThinkPad", sw: "Ubuntu 24.04" }, "laptop"), "other");
+  assert.equal(dc.platformOf({ manufacturer: "Google", model: "Pixel 9", sw: "16" }, "phone"), "android");
+  assert.equal(dc.platformOf({ manufacturer: "Microsoft", model: "Surface Duo", sw: "Android 12" }, "phone"), "android");
+  assert.equal(dc.platformOf({ manufacturer: "Apple", model: "iPhone17,1" }, "phone"), "ios");
 });
 
 test("the devices option picks devices by id or name, with their own options; exclude leaves some out", () => {
@@ -414,6 +424,7 @@ test("the system line adds the system's name to a bare version only", () => {
   assert.equal(sys("ios", "iPhone17,1", "18.1"), "iOS 18.1");
   assert.equal(sys("ios", "iPad14,1", "18.1"), "iPadOS 18.1");
   assert.equal(sys("ios", "iPad14,1", "iPadOS 18.1"), "iPadOS 18.1");
-  // A computer whose app is not Apple's is read as Android: its own system name is kept.
-  assert.equal(sys("android", "Desktop", "Microsoft Windows 11 Pro"), "Microsoft Windows 11 Pro");
+  // Another system's version is kept as it is, bare or named.
+  assert.equal(sys("other", "Desktop", "Microsoft Windows 11 Pro"), "Microsoft Windows 11 Pro");
+  assert.equal(sys("other", "Desktop", "10.0.22631"), "10.0.22631");
 });
