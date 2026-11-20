@@ -3736,6 +3736,9 @@ class DeviceBase extends HTMLElement {
     this._tick = null;
     this._pillResize?.disconnect();
     this._pillWidth = null;
+    if (typeof cancelAnimationFrame === "function") cancelAnimationFrame(this._pillFrame);
+    clearTimeout(this._sentTimer);
+    this._sent = null;
     this._outside?.off();
     // Left (another dashboard view, a conditional card hidden): back to the defaults, the popup closed without ringing.
     this._toggled = new Map();
@@ -3906,8 +3909,11 @@ class DeviceBase extends HTMLElement {
     const d = it.dev;
     const os = valid(it.s("os_version")) ? it.s("os_version").state : d.sw;
     if (!os) return "";
+    // A bare version number gets its system's name; a version that names its system ("Windows 11", "iPadOS 18") is
+    // kept as it is (every device that is not Apple's is read as Android).
+    if (!/^\d/.test(String(os).trim())) return os;
     const prefix = { ios: /ipad/i.test(d.model) ? "iPadOS" : "iOS", macos: "macOS", android: "Android" }[d.platform];
-    return new RegExp(`^${prefix}`, "i").test(os) ? os : `${prefix} ${os}`;
+    return `${prefix} ${os}`;
   }
 
   // The header: the illustration with the title, its state pill and the subtitle on its wall (the state also in the

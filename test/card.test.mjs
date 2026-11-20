@@ -406,3 +406,14 @@ test("the illustrated header: the devices on a desk, night from the sun or the o
   assert.match(classic, /<div class="trow"><div class="name">Devices<\/div><span class="chip crit"[^>]*>.*?1 low<\/span><\/span><\/div>\s*<div class="sub">/s);
   assert.match(html(newCard({}, makeHass(), dc.DeviceMiniCard)), /class="banner"/);
 });
+
+test("the system line adds the system's name to a bare version only", () => {
+  const card = newCard();
+  const sys = (platform, model, os) => card._system({ dev: { platform, model, sw: "" }, s: (k) => (k === "os_version" ? { state: os } : undefined) });
+  assert.equal(sys("android", "Pixel 9", "16"), "Android 16");
+  assert.equal(sys("ios", "iPhone17,1", "18.1"), "iOS 18.1");
+  assert.equal(sys("ios", "iPad14,1", "18.1"), "iPadOS 18.1");
+  assert.equal(sys("ios", "iPad14,1", "iPadOS 18.1"), "iPadOS 18.1");
+  // A computer whose app is not Apple's is read as Android: its own system name is kept.
+  assert.equal(sys("android", "Desktop", "Microsoft Windows 11 Pro"), "Microsoft Windows 11 Pro");
+});
