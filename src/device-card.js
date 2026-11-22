@@ -4480,7 +4480,7 @@ for (const card of [
   },
   { type: "device-mini-card", name: "Device Mini Card", description: "Battery rings of the Companion app devices, with a detail button." },
 ]) {
-  if (!window.customCards.some((c) => c.type === card.type)) window.customCards.push({ ...card, preview: true, documentationURL: "https://github.com/juju35/ha-device-card" });
+  if (!window.customCards.some((c) => c.type === card.type)) window.customCards.push({ ...card, preview: false, documentationURL: "https://github.com/juju35/ha-device-card" });
 }
 
 console.info(`%c DEVICE-CARD %c v${VERSION} `, "color: white; background: #009688; font-weight: 700;", "color: #009688; background: white; font-weight: 700;");
