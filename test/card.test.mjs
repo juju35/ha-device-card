@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { devices, entities, lowBattery, NOW, services, states } from "../scripts/mock-states.mjs";
 import { load } from "./load.mjs";
+import { source } from "./source.mjs";
 
 const dc = load();
 const plain = (v) => JSON.parse(JSON.stringify(v));
@@ -373,8 +374,7 @@ test("every language has every English text with its placeholders, and the card 
 });
 
 test("every English text is used by the cards", async () => {
-  const { readFileSync } = await import("node:fs");
-  const src = readFileSync(new URL("../src/device-card.js", import.meta.url), "utf8");
+  const src = source;
   const code = src.slice(src.indexOf("// Icons"));
   const dynamic = /^(state_|charger_|ringer_|dnd_|act_|kind_|sort_|details_)/;
   for (const k of Object.keys(dc.STRINGS.en)) {
